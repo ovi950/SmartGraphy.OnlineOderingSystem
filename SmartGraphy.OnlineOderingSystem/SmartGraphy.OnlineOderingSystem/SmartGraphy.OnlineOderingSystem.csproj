@@ -108,6 +108,8 @@
     <Content Include="assets\apps\scripts\todo-2.min.js" />
     <Content Include="assets\apps\scripts\todo.js" />
     <Content Include="assets\apps\scripts\todo.min.js" />
+    <Content Include="assets\css\freelancer.css" />
+    <Content Include="assets\css\freelancer.min.css" />
     <Content Include="assets\global\css\components-md.css" />
     <Content Include="assets\global\css\components-md.min.css" />
     <Content Include="assets\global\css\components-rounded.css" />
@@ -4494,6 +4496,10 @@
     <Content Include="assets\global\scripts\app.min.js" />
     <Content Include="assets\global\scripts\datatable.js" />
     <Content Include="assets\global\scripts\datatable.min.js" />
+    <Content Include="assets\js\contact_me.js" />
+    <Content Include="assets\js\freelancer.js" />
+    <Content Include="assets\js\freelancer.min.js" />
+    <Content Include="assets\js\jqBootstrapValidation.js" />
     <Content Include="assets\layouts\global\scripts\quick-sidebar.js" />
     <Content Include="assets\layouts\global\scripts\quick-sidebar.min.js" />
     <Content Include="assets\layouts\layout2\css\custom.css" />
@@ -5664,6 +5670,10 @@
     <Content Include="assets\pages\media\blog\Thumbs.db" />
     <Content Include="assets\pages\media\pages\Thumbs.db" />
     <Content Include="Site1.Master" />
+    <Content Include="UI\Customer\Customer.Master" />
+    <Content Include="assets\less\freelancer.less" />
+    <Content Include="assets\less\mixins.less" />
+    <Content Include="assets\less\variables.less" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5674,7 +5684,8 @@
   <ItemGroup>
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
-    <Content Include="UI\Customer\CutomerLogin.aspx" />
+    <Content Include="UI\Customer\Login.aspx" />
+    <Content Include="UI\Customer\Default.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5686,12 +5697,26 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="UI\Customer\CutomerLogin.aspx.cs">
-      <DependentUpon>CutomerLogin.aspx</DependentUpon>
+    <Compile Include="UI\Customer\Customer.Master.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Customer\CutomerLogin.aspx.designer.cs">
-      <DependentUpon>CutomerLogin.aspx</DependentUpon>
+    <Compile Include="UI\Customer\Customer.Master.designer.cs">
+      <DependentUpon>Customer.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Customer\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Customer\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Customer\Default.aspx.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Customer\Default.aspx.designer.cs">
+      <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

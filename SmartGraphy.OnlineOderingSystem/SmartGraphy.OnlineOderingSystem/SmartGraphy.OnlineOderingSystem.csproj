@@ -5680,7 +5680,6 @@
     <Content Include="assets\pages\media\blog\Thumbs.db" />
     <Content Include="assets\pages\media\pages\Thumbs.db" />
     <Content Include="Site1.Master" />
-    <Content Include="UI\Customer\Customer.Master" />
     <Content Include="assets\less\freelancer.less" />
     <Content Include="assets\less\mixins.less" />
     <Content Include="assets\less\variables.less" />
@@ -5721,6 +5720,7 @@
     <Content Include="assets\vendor\font-awesome\scss\_screen-reader.scss" />
     <Content Include="assets\vendor\font-awesome\scss\_stacked.scss" />
     <Content Include="assets\vendor\font-awesome\scss\_variables.scss" />
+    <Content Include="UI\Customer\Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5732,6 +5732,7 @@
     <Content Include="scripts\ai.0.15.0-build58334.js" />
     <Content Include="scripts\ai.0.15.0-build58334.min.js" />
     <Content Include="UI\Customer\Login.aspx" />
+    <Content Include="UI\Customer\WebForm1.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -5743,19 +5744,26 @@
     <Compile Include="Site1.Master.designer.cs">
       <DependentUpon>Site1.Master</DependentUpon>
     </Compile>
-    <Compile Include="UI\Customer\Customer.Master.cs">
-      <DependentUpon>Customer.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="UI\Customer\Customer.Master.designer.cs">
-      <DependentUpon>Customer.Master</DependentUpon>
-    </Compile>
     <Compile Include="UI\Customer\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="UI\Customer\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Customer\Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Customer\Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Customer\WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Customer\WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

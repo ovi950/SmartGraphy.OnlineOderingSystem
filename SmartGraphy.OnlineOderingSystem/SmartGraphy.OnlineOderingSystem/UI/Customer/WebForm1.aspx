@@ -7,14 +7,39 @@
         <!-- BEGIN PAGE HEADER-->
         <!-- BEGIN THEME PANEL -->
         <!-- Portfolio Grid Section -->
-        <section id="head">
-            <div class="container">
-                <div class="row">
+         <!-- About Section -->
+        <div class="row">
                     <div class="col-lg-12 text-center">
                         <h2>Smart Graphy</h2>
                         <hr class="star-primary">
                     </div>
                 </div>
+        <section class="success" id="about">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-center">
+                        <h2>About</h2>
+                        <hr class="star-light">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-lg-offset-2">
+                        <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
+                    </div>
+                    <div class="col-lg-8 col-lg-offset-2 text-center">
+                       
+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <section id="head">
+            <div class="container">
+                
                 <div class="row">
                     <div class="col-sm-4 portfolio-item">
                         <a href="#portfolioModal1" class="portfolio-link" data-toggle="modal">
@@ -80,30 +105,7 @@
             </div>
         </section>
 
-        <!-- About Section -->
-        <section class="success" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-12 text-left">
-                        <h2>About</h2>
-                        <hr class="star-light">
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-4 col-lg-offset-2">
-                        <p>Freelancer is a free bootstrap theme created by Start Bootstrap. The download includes the complete source files including HTML, CSS, and JavaScript as well as optional LESS stylesheets for easy customization.</p>
-                    </div>
-                    <div class="col-lg-4">
-                        <p>Whether you're a student looking to showcase your work, a professional looking to attract clients, or a graphic artist looking to share your projects, this template is the perfect starting point!</p>
-                    </div>
-                    <div class="col-lg-8 col-lg-offset-2 text-center">
-                        <a href="#" class="btn btn-lg btn-outline">
-                            <i class="fa fa-download"></i>Download Theme
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
+       
 
         <!-- Contact Section -->
         <section id="contact">

@@ -7,11 +7,11 @@
         <!-- BEGIN PAGE HEADER-->
         <!-- BEGIN THEME PANEL -->
         <!-- Portfolio Grid Section -->
-        <section id="portfolio">
+        <section id="head">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12 text-center">
-                        <h2>Portfolio</h2>
+                        <h2>Smart Graphy</h2>
                         <hr class="star-primary">
                     </div>
                 </div>
@@ -84,7 +84,7 @@
         <section class="success" id="about">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-12 text-center">
+                    <div class="col-lg-12 text-left">
                         <h2>About</h2>
                         <hr class="star-light">
                     </div>

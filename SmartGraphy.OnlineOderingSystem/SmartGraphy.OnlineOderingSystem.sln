@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.24720.0
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartGraphy.OnlineOderingSystem", "SmartGraphy.OnlineOderingSystem\SmartGraphy.OnlineOderingSystem.csproj", "{241AEBFC-1A74-452F-899C-22FE30A0001A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartGraphy.OnlineOrderingSystem", "SmartGraphy.OnlineOderingSystem\SmartGraphy.OnlineOrderingSystem.csproj", "{241AEBFC-1A74-452F-899C-22FE30A0001A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SmartGraphy.OnlineOrderingSystem.Core", "SmartGraphy.OnlineOrderingSystem.Core\SmartGraphy.OnlineOrderingSystem.Core.csproj", "{40ACCEB8-4D5D-44E6-B0CD-070A42E41756}"
 EndProject

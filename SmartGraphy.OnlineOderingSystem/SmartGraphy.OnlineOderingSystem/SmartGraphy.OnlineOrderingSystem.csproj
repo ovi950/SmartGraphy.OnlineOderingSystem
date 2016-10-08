@@ -5675,9 +5675,11 @@
     <Content Include="assets\pages\media\blog\Thumbs.db" />
     <Content Include="assets\pages\media\pages\Thumbs.db" />
     <Content Include="UI\Backend\Admin\Default.aspx" />
+    <Content Include="UI\Backend\Admin\Inbox.aspx" />
     <Content Include="UI\Backend\Admin\ManageUsers.aspx" />
     <Content Include="WebServices\BackendWebservice.asmx" />
     <Content Include="UI\Backend\Site1.Master" />
+    <None Include="Properties\PublishProfiles\SmartGraphy.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -5702,6 +5704,13 @@
     </Compile>
     <Compile Include="UI\Backend\Admin\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Backend\Admin\Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Admin\Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Backend\Admin\ManageUsers.aspx.cs">
       <DependentUpon>ManageUsers.aspx</DependentUpon>
@@ -5739,6 +5748,7 @@
   <ItemGroup>
     <Folder Include="assets\apps\img\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
+    <Folder Include="UI\Backend\Supervisor\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartGraphy.OnlineOrderingSystem.Core\SmartGraphy.OnlineOrderingSystem.Core.csproj">

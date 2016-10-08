@@ -10,46 +10,20 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 {
     public class UsersBL : AbstractBL<TB_User, long>
     {
-        public int VerifyUser(string userName, string password)
+        public List<UserEntity> VerifyUser(string userName, string password)
         {
             var userDetails = (from d in EntityManager.TB_Users
                                where d.Username == userName && d.Password == password
-                               select d
-           ).SingleOrDefault();
+                               select new UserEntity() {
+                                   Username=d.Username,
+                                   Password=d.Password,
+                                   Status=d.Status,
+                                   UserType=d.UserType,
+                                   NICNo=d.NICNo
+                               }
+           ).ToList();
 
-            if (userDetails != null && userDetails.Status == "active")
-            {
-                //var employeeDetails = (from d in EntityManager.TB_Employees
-                //                       where d.NIC == UserDertails.NICNo
-                //                       select new EmployeeEntity()
-                //                       {
-                //                           FName = d.FirstName,
-                //                           LName = d.LastName,
-                //                           AdLine1 = d.AdLine1,
-                //                           AdLine2 = d.AdLine2,
-                //                           AdLine3 = d.AdLine3,
-                //                           ContactNo = d.ContactNo,
-                //                           Email = d.Email,
-                //                           UserStatus = UserDertails.Status
-                //                       }
-                //    ).ToList();
-
-                return 1;
-            }
-            else if (userDetails != null && userDetails.Status == "blocked")
-            {
-                return 2;
-            }
-            else if (userDetails != null && userDetails.Status == "new")
-            {
-                return 3;
-            }
-            else {
-                //var employeeDetails = new EmployeeEntity();
-                //employeeDetails.UserStatus = "";
-                return 0;
-
-            }
+            return userDetails;
         }
         public bool VerifyUsername(string username)
         {
@@ -62,7 +36,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
             }
             else
             {
-                return true;
+                return false;
             }
 
         }
@@ -92,10 +66,9 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
         public bool AddNewUser(string nic, string username, string type, string fname, string lname, string adline1, string adline2, string adline3, string contactno, string email, string photo)
         {
             Random rnd = new Random();
-            string random = rnd.Next(000, 9999).ToString();
             var newUser = new TB_User();
             newUser.Username = username;
-            newUser.Password = "default" + random;
+            newUser.Password = "default";
             newUser.UserType = type;
             newUser.Status = "new";
 

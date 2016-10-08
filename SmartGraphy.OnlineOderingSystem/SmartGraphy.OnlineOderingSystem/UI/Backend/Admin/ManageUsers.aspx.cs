@@ -51,6 +51,10 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin
             all_user.InnerHtml = html;
 
         }
-        
+
+        protected void btn_confirm_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

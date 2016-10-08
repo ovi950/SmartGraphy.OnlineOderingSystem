@@ -12,6 +12,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.Entities
         public string Password { get; set; }
         public string Status { get; set; }
         public string UserType { get; set; }
+        public string NICNo { get; set; }
         
     }
 }

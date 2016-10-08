@@ -13,6 +13,33 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin {
     public partial class ManageUsers {
         
         /// <summary>
+        /// form_user control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlForm form_user;
+        
+        /// <summary>
+        /// myfile control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputFile myfile;
+        
+        /// <summary>
+        /// btn_confirm control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btn_confirm;
+        
+        /// <summary>
         /// all_user control.
         /// </summary>
         /// <remarks>

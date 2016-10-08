@@ -1,8 +1,9 @@
 ﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Default.aspx.cs" MasterPageFile="~/UI/Backend/Site1.Master" Inherits="SmartGraphy.OnlineOderingSystem.UI.Backend.WebForm1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <small>dashboard & statistics</small>
+    <h3>
+        <a href="Default.aspx">HOME</a>
+        <small>dashboard & statistics</small>
     </h3>
 
     <div class="portlet light bordered">

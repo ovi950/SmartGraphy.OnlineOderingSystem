@@ -23,16 +23,25 @@ namespace SmartGraphy.OnlineOderingSystem.WebServices
 
         [WebMethod(EnableSession = true)]
         [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
-        public string VerifyUser(string username, string password)
+        public List<UserEntity> VerifyUser(string username, string password)
         {
-            UsersBL user = new UsersBL();
-            var isVerified = user.VerifyUser(username, password);
-            if (isVerified==1)
+            var userDetails = new UsersBL().VerifyUser(username, password);
+            if (userDetails != null)
             {
                 Session["username"] = username;
                 Session["password"] = password;
+
             }
-            return new System.Web.Script.Serialization.JavaScriptSerializer().Serialize(isVerified);
+            return userDetails;
         }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public bool AddNewUser(string nic, string username, string type, string fname, string lname, string adline1, string adline2, string adline3, string contactno, string email, string photo)
+        {
+
+            return new UsersBL().AddNewUser(nic, username, type, fname,lname,adline1,adline2,adline3,contactno,email,photo);
+        }
+
     }
 }

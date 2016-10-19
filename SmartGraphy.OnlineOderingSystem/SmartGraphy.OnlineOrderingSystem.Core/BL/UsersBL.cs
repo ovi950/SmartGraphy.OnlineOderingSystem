@@ -10,18 +10,19 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 {
     public class UsersBL : AbstractBL<TB_User, long>
     {
-        public List<UserEntity> VerifyUser(string userName, string password)
+        public UserEntity VerifyUser(string userName, string password)
         {
             var userDetails = (from d in EntityManager.TB_Users
                                where d.Username == userName && d.Password == password
-                               select new UserEntity() {
-                                   Username=d.Username,
-                                   Password=d.Password,
-                                   Status=d.Status,
-                                   UserType=d.UserType,
-                                   NICNo=d.NICNo
+                               select new UserEntity()
+                               {
+                                   Username = d.Username,
+                                   Password = d.Password,
+                                   Status = d.Status,
+                                   UserType = d.UserType,
+                                   NICNo = d.NICNo
                                }
-           ).ToList();
+           ).SingleOrDefault();
 
             return userDetails;
         }
@@ -62,7 +63,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                           ).ToList();
             return allUsers;
         }
-        
+
         public bool AddNewUser(string nic, string username, string type, string fname, string lname, string adline1, string adline2, string adline3, string contactno, string email, string photo)
         {
             Random rnd = new Random();
@@ -71,6 +72,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
             newUser.Password = "default";
             newUser.UserType = type;
             newUser.Status = "new";
+            newUser.NICNo = nic;
 
             var newEmployee = new TB_Employee();
             newEmployee.FirstName = fname;
@@ -80,7 +82,10 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
             newEmployee.AdLine3 = adline3;
             newEmployee.ContactNo = contactno;
             newEmployee.Email = email;
+            newEmployee.NIC = nic;
+            newEmployee.ImgPath = photo;
             EntityManager.TB_Users.InsertOnSubmit(newUser);
+            // EntityManager.SubmitChanges();
             EntityManager.TB_Employees.InsertOnSubmit(newEmployee);
             return SaveChanges();
 
@@ -103,14 +108,13 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                 employee.AdLine3 = adline3;
                 employee.ContactNo = contactno;
                 employee.Email = email;
-                employee.NIC = newNic;
+                //employee.NIC = newNic;
 
                 EntityManager.SubmitChanges();
                 return true;
             }
             catch (Exception)
             {
-
                 return false;
             }
 
@@ -127,6 +131,8 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                             select d).SingleOrDefault();
                 user.Username = newUserName;
                 user.Password = pw;
+                user.Status = "active";
+                EntityManager.SubmitChanges();
                 return true;
             }
             catch (Exception)
@@ -137,7 +143,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 
 
         }
-        public bool RemoveUser(string userName)
+        public bool BlockUser(string userName)
         {
             try
             {
@@ -145,6 +151,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                             where d.Username == userName
                             select d).SingleOrDefault();
                 user.Status = "blocked";
+                EntityManager.SubmitChanges();
                 return true;
             }
             catch (Exception)
@@ -153,7 +160,25 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                 return false;
             }
         }
-        public bool ContactAdmin(string title,string content,string user)
+
+        public bool UnblockUser(string userName)
+        {
+            try
+            {
+                var user = (from d in EntityManager.TB_Users
+                            where d.Username == userName
+                            select d).SingleOrDefault();
+                user.Status = "active";
+                EntityManager.SubmitChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+
+                return false;
+            }
+        }
+        public bool ContactAdmin(string title, string content, string user)
         {
             try
             {
@@ -166,9 +191,40 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
             }
             catch (Exception)
             {
-
-                return false; 
+                return false;
             }
+        }
+        public EmployeeEntity GetUserDetailsByUsername(string username)
+        {
+            return (from d in EntityManager.TB_Users
+                    where d.Username == username
+                    select new EmployeeEntity()
+                    {
+                        Username = d.Username,
+                        UserType = d.UserType,
+                        Password = d.UserType,
+                        Status = d.Status,
+                        FName = d.TB_Employee.FirstName,
+                        LName = d.TB_Employee.LastName,
+                        NICNo = d.NICNo
+                    }).SingleOrDefault();
+
+        }
+        public bool ResetPassword(string username)
+        {
+            if (VerifyUsername(username))
+            {
+                var results = (from d in EntityManager.TB_Users
+                               where d.Username == username
+                               select d
+                             ).SingleOrDefault();
+                results.Password = "default";
+                EntityManager.SubmitChanges();
+
+                return true;
+            }
+
+            return false;
         }
     }
 }

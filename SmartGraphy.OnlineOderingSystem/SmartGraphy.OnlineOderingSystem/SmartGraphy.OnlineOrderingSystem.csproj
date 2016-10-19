@@ -4498,6 +4498,8 @@
     <Content Include="assets\global\scripts\datatable.min.js" />
     <Content Include="assets\jquery-3.1.0.min.js" />
     <Content Include="assets\jquery-3.1.1.min.js" />
+    <Content Include="assets\jquery.validate.js" />
+    <Content Include="assets\jquery.validate.min.js" />
     <Content Include="assets\layouts\global\scripts\quick-sidebar.js" />
     <Content Include="assets\layouts\global\scripts\quick-sidebar.min.js" />
     <Content Include="assets\layouts\layout2\css\custom.css" />
@@ -5294,6 +5296,8 @@
     <Content Include="assets\pages\scripts\ui-tree.min.js" />
     <Content Include="assets\pages\scripts\widgets.js" />
     <Content Include="assets\pages\scripts\widgets.min.js" />
+    <Content Include="assets\screen.css" />
+    <Content Include="assets\style.css" />
     <Content Include="assets\sweetAlerts\sweetalert.css" />
     <Content Include="assets\sweetAlerts\sweetalert.js" />
     <Content Include="assets\sweetAlerts\sweetalert.min.js" />
@@ -5691,7 +5695,9 @@
     <Content Include="UI\Backend\Login.aspx" />
     <Content Include="UI\Customer\Test.html" />
     <Content Include="UI\Customer\WebForm1.aspx" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Global.asax.cs">
@@ -5749,6 +5755,7 @@
     <Folder Include="assets\apps\img\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="UI\Backend\Supervisor\" />
+    <Folder Include="Uploads\UserPhotos\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SmartGraphy.OnlineOrderingSystem.Core\SmartGraphy.OnlineOrderingSystem.Core.csproj">

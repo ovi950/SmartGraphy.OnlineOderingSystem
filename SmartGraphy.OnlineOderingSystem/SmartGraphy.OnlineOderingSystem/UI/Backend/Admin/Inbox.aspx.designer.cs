@@ -13,12 +13,12 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin {
     public partial class Inbox {
         
         /// <summary>
-        /// all_user control.
+        /// tbl_msgs control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl all_user;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tbl_msgs;
     }
 }

@@ -14,7 +14,8 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.Entities
         public string SentBy { get; set; }
         public DateTime SentOn { get; set; }
         public bool IsRead { get; set; }
-        public string Reciever{get;set;}
+        public string Reciever{get;set;}    
+        public List< MessageAttachmentsEntity> Attachments { get; set; }
 
     }
 }

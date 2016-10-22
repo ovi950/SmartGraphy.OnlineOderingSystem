@@ -18,17 +18,16 @@
                     <a href="javascript:;" data-title="Compose" class="btn red compose-btn btn-block">
                         <i class="fa fa-edit"></i>Compose </a>
                     <ul class="inbox-nav">
-                        
+
                         <li>
                             <a href="#" id="userinbox" data-type="important" data-title="From Users">From Users </a>
                         </li>
                         <li>
                             <a href="#" id="customerinbox" data-type="sent" data-title="From Customers">From Cumtomers </a>
                         </li>
-                        
+
                     </ul>
                     <ul class="inbox-contacts">
-                        
                     </ul>
                 </div>
             </div>
@@ -44,12 +43,13 @@
                         <table class="table table-striped table-hover table-bordered" id="tbl_user">
                             <thead>
                                 <tr>
-                                    <th>#</th>
                                     <th></th>
-
+                                    <th>Title</th>
+                                    <th>From</th>
+                                    <th>DateTime</th>
                                 </tr>
                             </thead>
-                            <tbody id="all_user" runat="server">
+                            <tbody id="tbl_msgs" runat="server">
                             </tbody>
                         </table>
                     </div>

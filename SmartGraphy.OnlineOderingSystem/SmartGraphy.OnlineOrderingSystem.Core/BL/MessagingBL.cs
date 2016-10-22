@@ -16,14 +16,20 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                             where d.username == username
                             select new MessagingEntity()
                             {
+
                                 MsgNo = d.MsgNo,
                                 MsgTitle = d.TB_UserMessage.MsgTitle,
                                 MsgContent = d.TB_UserMessage.MsgContent,
                                 SentBy = d.TB_UserMessage.SentBy,
                                 SentOn = d.TB_UserMessage.SentOn,
                                 IsRead = d.TB_UserMessage.IsRead,
-                                Reciever = d.username
-
+                                Reciever = d.username,
+                                Attachments = (from x in EntityManager.TB_UserMsg_Attachments
+                                               where x.username == d.username
+                                               select new MessageAttachmentsEntity()
+                                               {
+                                                    AttachmentLocation=x.location
+                                               }).ToList()
                             }).ToList();
             return messages;
         }

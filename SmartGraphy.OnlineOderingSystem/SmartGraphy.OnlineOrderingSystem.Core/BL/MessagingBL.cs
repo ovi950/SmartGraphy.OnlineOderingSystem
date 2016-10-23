@@ -10,7 +10,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 {
     public class MessagingBL : AbstractBL<TB_UserMessage, long>
     {
-        public List<MessagingEntity> AllMessages(string username)
+        public List<MessagingEntity> GetAllMessages(string username)
         {
             var messages = (from d in EntityManager.TB_userMessagersRecievers
                             where d.username == username
@@ -23,12 +23,65 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                                 SentBy = d.TB_UserMessage.SentBy,
                                 SentOn = d.TB_UserMessage.SentOn,
                                 IsRead = d.TB_UserMessage.IsRead,
-                                Reciever = d.username,
+                                Reciever =
+                                    new EmployeeEntity()
+                                    {
+                                        FName = d.TB_User.TB_Employee.FirstName,
+                                        LName = d.TB_User.TB_Employee.LastName,
+                                        AdLine1 = d.TB_User.TB_Employee.AdLine1,
+                                        AdLine2 = d.TB_User.TB_Employee.AdLine2,
+                                        AdLine3 = d.TB_User.TB_Employee.AdLine3,
+                                        ContactNo = d.TB_User.TB_Employee.ContactNo,
+                                        Email = d.TB_User.TB_Employee.Email,
+                                        NicNo = d.TB_User.TB_Employee.NIC,
+                                        PhotoPath = d.TB_User.TB_Employee.ImgPath,
+                                        Password = d.TB_User.Password,
+                                        UserType = d.TB_User.UserType
+
+                                    },
                                 Attachments = (from x in EntityManager.TB_UserMsg_Attachments
-                                               where x.username == d.username
+                                               where x.username == d.TB_UserMessage.SentBy
                                                select new MessageAttachmentsEntity()
                                                {
-                                                    AttachmentLocation=x.location
+                                                   AttachmentLocation = x.location
+                                               }).ToList()
+                            }).ToList();
+            return messages;
+        }
+        public List<MessagingEntity> GetAllSentMessages(string username)
+        {
+            var messages = (from d in EntityManager.TB_UserMessages
+                            where d.SentBy == username
+                            select new MessagingEntity()
+                            {
+
+                                MsgNo = d.MsgNo,
+                                MsgTitle = d.MsgTitle,
+                                MsgContent = d.MsgContent,
+                                SentBy = d.SentBy,
+                                SentOn = d.SentOn,
+                                IsRead = d.IsRead,
+                                Reciever =
+                                    new EmployeeEntity()
+                                    {
+                                        FName = d.TB_User.TB_Employee.FirstName,
+                                        LName = d.TB_User.TB_Employee.LastName,
+                                        AdLine1 = d.TB_User.TB_Employee.AdLine1,
+                                        AdLine2 = d.TB_User.TB_Employee.AdLine2,
+                                        AdLine3 = d.TB_User.TB_Employee.AdLine3,
+                                        ContactNo = d.TB_User.TB_Employee.ContactNo,
+                                        Email = d.TB_User.TB_Employee.Email,
+                                        NicNo = d.TB_User.TB_Employee.NIC,
+                                        PhotoPath = d.TB_User.TB_Employee.ImgPath,
+                                        Password = d.TB_User.Password,
+                                        UserType = d.TB_User.UserType
+
+                                    },
+                                Attachments = (from x in EntityManager.TB_UserMsg_Attachments
+                                               where x.username == username
+                                               select new MessageAttachmentsEntity()
+                                               {
+                                                   AttachmentLocation = x.location
                                                }).ToList()
                             }).ToList();
             return messages;

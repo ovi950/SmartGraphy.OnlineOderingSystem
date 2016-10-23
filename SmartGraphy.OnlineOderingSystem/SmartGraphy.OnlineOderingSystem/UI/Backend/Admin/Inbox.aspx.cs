@@ -28,7 +28,7 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin
         {
             string status = string.Empty;
             string html = string.Empty;
-            var userMsgs = new MessagingBL().AllMessages(username);
+            var userMsgs = new MessagingBL().GetAllMessages(username);
             foreach (var msg in userMsgs)
             {
                 if (!msg.IsRead)
@@ -40,6 +40,17 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin
                     status = string.Empty;
                 }
                 html += "<tr id=\"" + msg.MsgNo + "\" data-date=\"" + msg.SentOn + "\" data-msg=\"" + msg.MsgContent + "\" data-sender=\"" + msg.SentBy + "\"data-title=\"" + msg.MsgTitle + "\" onClick=\"showMessage(this);\"><td>" + status + " </td><td>" + msg.MsgTitle + "</td><td>" + msg.SentBy + "</td><td>" + msg.SentOn + "</td</tr>";
+            }
+            tbl_msgs.InnerHtml = html;
+        }
+        public void LoadSentMessages(string username)
+        {
+            string html = string.Empty;
+            var userMsgs = new MessagingBL().GetAllSentMessages(username);
+            foreach (var msg in userMsgs)
+            {
+                
+                html += "<tr id=\"" + msg.MsgNo + "\" data-date=\"" + msg.SentOn + "\" data-msg=\"" + msg.MsgContent + "\" data-sender=\"" + msg.SentBy + "\"data-title=\"" + msg.MsgTitle + "\" onClick=\"showSentMessage(this);\"><td> </td><td>" + msg.MsgTitle + "</td><td>" + msg.SentBy + "</td><td>" + msg.SentOn + "</td</tr>";
             }
             tbl_msgs.InnerHtml = html;
         }

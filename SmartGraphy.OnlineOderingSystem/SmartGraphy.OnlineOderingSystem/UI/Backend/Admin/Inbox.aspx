@@ -9,8 +9,50 @@
                        
         <small>inbox</small>
     </h3>
+    <div class="modal fade" id="modal_viewmsg" style="display: none;">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content c-square">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_close1">
+                        <span aria-hidden="true">×</span>
+                    </button>
+
+                    <h4 id="lbl_style" class="modal-title bold uppercase font-grey-cascade">Message</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="portlet-body">
+
+                        <div class="portlet light portlet-fit portlet-form bordered">
+                            <div class="portlet-title">
+                                <div class="caption">
+                                    <i class=" icon-layers font-red"></i>
+                                    <span id="div_title" class="caption-subject font-red sbold uppercase"></span>
+                                </div>
+
+                            </div>
+                            <div class="portlet-body">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <textarea id="div_msgcontent" readonly="readonly" class="form-control">
+
+                                    </textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" onclick="replyMessage();" id="btn_reply" class="btn dark btn-outline" data-dismiss="modal">Reply</button>
+                        <button type="button" id="btn_cancel" class="btn dark btn-outline" data-dismiss="modal">close</button>
+                        <%--<asp:Button runat="server" ID="btn_confirm" class="btn green" Text="Confirm" />--%>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- END PAGE TITLE-->
     <!-- END PAGE HEADER-->
+    <input type="hidden" id="sender" />
     <div class="inbox">
         <div class="row">
             <div class="col-md-2">
@@ -20,10 +62,10 @@
                     <ul class="inbox-nav">
 
                         <li>
-                            <a href="#" id="userinbox" data-type="important" data-title="From Users">From Users </a>
+                            <a href="#" id="userinbox" data-type="important" data-title="Inbox">Inbox</a>
                         </li>
                         <li>
-                            <a href="#" id="customerinbox" data-type="sent" data-title="From Customers">From Cumtomers </a>
+                            <a href="#" id="customerinbox" data-type="sent" data-title="Sent Messages">Sent Messagess </a>
                         </li>
 
                     </ul>
@@ -58,4 +100,18 @@
             </div>
         </div>
     </div>
+</asp:Content>
+<asp:Content ID="content2" ContentPlaceHolderID="headContent" runat="server">
+    <script>
+        function showMessage(e) {
+            $('#modal_viewmsg').modal('show');
+            $("#div_msgcontent").text($(e).attr('data-msg'));
+            $("#div_title").text($(e).attr('data-title'));
+            $("#sender").val($(e).attr('data-sender'));
+            alert($("#sender").val());
+        }
+        function replyMessage() {
+
+        }
+    </script>
 </asp:Content>

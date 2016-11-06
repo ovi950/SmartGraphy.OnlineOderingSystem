@@ -13,6 +13,33 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin {
     public partial class Inbox {
         
         /// <summary>
+        /// div_replyContent control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlTextArea div_replyContent;
+        
+        /// <summary>
+        /// user control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden user;
+        
+        /// <summary>
+        /// div_caption control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_caption;
+        
+        /// <summary>
         /// tbl_msgs control.
         /// </summary>
         /// <remarks>
@@ -20,5 +47,23 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl tbl_msgs;
+        
+        /// <summary>
+        /// ddl_users control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddl_users;
+        
+        /// <summary>
+        /// ddl_group control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddl_group;
     }
 }

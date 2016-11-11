@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AbstractBL.cs" />
+    <Compile Include="BL\CategoryBL.cs" />
     <Compile Include="BL\MessagingBL.cs" />
     <Compile Include="BL\UsersBL.cs" />
     <Compile Include="DTO\EntityManager.designer.cs">
@@ -52,6 +53,7 @@
       <DependentUpon>EntityManager.dbml</DependentUpon>
     </Compile>
     <Compile Include="Entities\EmployeeEntity.cs" />
+    <Compile Include="Entities\ItemCategoryEntity.cs" />
     <Compile Include="Entities\MessageAttachmentsEntity.cs" />
     <Compile Include="Entities\MessagingEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />

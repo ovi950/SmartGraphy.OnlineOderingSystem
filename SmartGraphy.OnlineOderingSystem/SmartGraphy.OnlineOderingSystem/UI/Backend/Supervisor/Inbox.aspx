@@ -1,9 +1,9 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" MasterPageFile="~/UI/Backend/Site1.Master" CodeBehind="Inbox.aspx.cs" Inherits="SmartGraphy.OnlineOderingSystem.UI.Backend.Admin.Inbox" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Inbox.aspx.cs" MasterPageFile="~/UI/Backend/Site1.Master" Inherits="SmartGraphy.OnlineOderingSystem.UI.Backend.Supervisor.Inbox" %>
 
 <asp:Content ID="content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-
-    <%--<link href="../../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
-    <link href="../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />--%>
+   
+<%--    <link href="../../../assets/global/plugins/datatables/datatables.min.css" rel="stylesheet" type="text/css" />
+    <link href="../../../assets/global/plugins/datatables/plugins/bootstrap/datatables.bootstrap.css" rel="stylesheet" type="text/css" />--%>
     <link href="../../../assets/global/plugins/bootstrap-toastr/toastr.css" rel="stylesheet" type="text/css" />
     <link href="../../../assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
 
@@ -370,7 +370,7 @@
             });
         }
         function loadSentItems() {
-            try {
+            try{
                 $("#div_compose").hide();
                 $("#div_inbox").show();
                 $("#btn_reply").hide();
@@ -398,7 +398,7 @@
                     }
                 });
             }
-            catch (e) { }
+            catch(e){}
         }
         function loadCompose() {
             $("#div_compose").show();

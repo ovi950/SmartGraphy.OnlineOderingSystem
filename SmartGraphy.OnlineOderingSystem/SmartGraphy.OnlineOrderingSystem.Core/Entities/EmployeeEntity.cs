@@ -8,6 +8,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.Entities
 {
    public class EmployeeEntity:UserEntity
     {
+        public string FullName { get; set; }
         public string NicNo { get; set; }
         public string FName { get; set; }
         public string LName { get; set; }

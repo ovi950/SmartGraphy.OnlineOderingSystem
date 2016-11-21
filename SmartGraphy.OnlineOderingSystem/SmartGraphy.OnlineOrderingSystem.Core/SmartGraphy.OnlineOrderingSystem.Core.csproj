@@ -35,6 +35,7 @@
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -45,7 +46,9 @@
   <ItemGroup>
     <Compile Include="BL\AbstractBL.cs" />
     <Compile Include="BL\CategoryBL.cs" />
+    <Compile Include="BL\ItemCategoryBL.cs" />
     <Compile Include="BL\MessagingBL.cs" />
+    <Compile Include="BL\TemplateBL.cs" />
     <Compile Include="BL\UsersBL.cs" />
     <Compile Include="DTO\EntityManager.designer.cs">
       <AutoGen>True</AutoGen>
@@ -56,6 +59,7 @@
     <Compile Include="Entities\ItemCategoryEntity.cs" />
     <Compile Include="Entities\MessageAttachmentsEntity.cs" />
     <Compile Include="Entities\MessagingEntity.cs" />
+    <Compile Include="Entities\TemplateEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />

@@ -46,6 +46,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
             var allUsers = (from d in EntityManager.TB_Users
                             select new EmployeeEntity()
                             {
+                                FullName = d.TB_Employee.FirstName + " " + d.TB_Employee.LastName,
                                 FName = d.TB_Employee.FirstName,
                                 LName = d.TB_Employee.LastName,
                                 AdLine1 = d.TB_Employee.AdLine1,
@@ -63,6 +64,8 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                           ).ToList();
             return allUsers;
         }
+
+
 
         public bool AddNewUser(string nic, string username, string type, string fname, string lname, string adline1, string adline2, string adline3, string contactno, string email, string photo)
         {

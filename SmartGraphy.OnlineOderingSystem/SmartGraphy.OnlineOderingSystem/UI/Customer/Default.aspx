@@ -11,8 +11,8 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Freelancer - Start Bootstrap Theme</title>
-
+    <title>Smart Graphy</title>
+    
     <!-- Bootstrap Core CSS -->
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Theme CSS -->
@@ -35,8 +35,10 @@
 </head>
 
 <body id="page-top" class="index">
+    <form id="data" runat="server" action="Default.aspx" method="post">
     <!-- Modal -->
-   
+   <input type="hidden" runat="server" id="img">
+
 <div id="modalProducts" class="modal fade" style=" zoom: 150%;" role="dialog">
   <div class="modal-dialog">
 
@@ -44,7 +46,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Modal Header</h4>
+        <h4 class="modal-title">Templates</h4>
       </div>
       <div class="modal-body">
         <div class="row" id="div_templates" runat="server">
@@ -52,7 +54,7 @@
         </div>
       </div>
       <div class="modal-footer">
-          <button type="button" id="btnChange" class="btn btn-success" >click me and see the magic</button>
+          
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -60,9 +62,38 @@
   </div>
 </div>    
 
-    <form id="data" runat="server">
+       <input type="hidden" runat="server" id="Hidden1">
+
+
+
+
+<div id="modalRequirements" class="modal fade"  role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title"></h4>
+      </div>
+      <div class="modal-body">
+        <div class="row" id="div_req" runat="server">
+
+        </div>
+      </div>
+      <div class="modal-footer">
+         <button type="button" class="btn btn-default" runat="server" id="addCart" data-dismiss="modal">Add to cart</button> 
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+
+  </div>
+</div>    
+
+
+    
         <input type="hidden" runat="server" id="productData" />
-    </form>
+    
     <!-- Navigation -->
     <nav id="mainNav" style="background-color: black;" class="navbar navbar-default navbar-fixed-top navbar-custom">
         <div class="container">
@@ -86,12 +117,16 @@
                     <li class="page-scroll">
                         <a href="#portfolio">Our Products</a>
                     </li>
-                    <li class="page-scroll">
+                    <li id="li_signup" runat="server" class="page-scroll">
                         <a href="#contact">Sign Up</a>
                     </li>
-                    <li class="page-scroll">
+                    <li id="li_signIn" runat="server"  class="page-scroll">
                         <a href="#">Sign In</a>
                     </li>
+                    <li onclick="signOut();" hidden="hidden" runat="server" id="li_sginOut" class="page-scroll">
+                        <a href="#">Sign out</a>
+                    </li>
+
                 </ul>
             </div>
             <!-- /.navbar-collapse -->
@@ -158,7 +193,7 @@
 
 
     <!-- Contact Section -->
-    <section id="contact">
+    <section id="contact" runat="server">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 text-center">
@@ -170,18 +205,18 @@
                 <div class="col-lg-8 col-lg-offset-2">
                     <!-- To configure the contact form email address, go to mail/contact_me.php and update the email address in the PHP file on line 19. -->
                     <!-- The form should work on most web servers, but if the form is not working you may need to configure your web server differently. -->
-                    <form name="sentMessage" id="contactForm" novalidate>
+                    
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>First Name</label>
-                                <input type="text" class="form-control" placeholder="First Name">
+                                <input type="text" runat="server" id="txtFirstName" class="form-control" placeholder="First Name">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Last Name</label>
-                                <input type="text" class="form-control" placeholder="Last Name" id="name">
+                                <input type="text" class="form-control" runat="server" placeholder="Last Name" id="txtLastName">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -189,14 +224,14 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Address Line1</label>
-                                <input type="text" class="form-control" placeholder="Address Line1" id="name">
+                                <input type="text" id="txt_adLine1" class="form-control" runat="server" placeholder="Address Line1">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Address Line2</label>
-                                <input type="text" class="form-control" placeholder="Address Line2" id="txt_adline2">
+                                <input type="text" runat="server"  class="form-control" placeholder="Address Line2" id="txt_adline2">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -204,7 +239,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Address Line3</label>
-                                <input type="text" class="form-control" placeholder="Address Line3" id="txt_adline3">
+                                <input type="text" runat="server" class="form-control" placeholder="Address Line3" id="txt_adline3">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -212,21 +247,21 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Email Address</label>
-                                <input type="email" class="form-control" placeholder="Email Address" id="txt_email">
+                                <input type="email" runat="server" class="form-control" placeholder="Email Address" id="txt_email">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Phone Number</label>
-                                <input type="tel" class="form-control" placeholder="Phone Number" id="txt_cn">
+                                <input type="tel" runat="server" class="form-control" placeholder="Phone Number" id="txt_cn">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Username</label>
-                                <input type="text" class="form-control" placeholder="Username" id="txt_usrname" />
+                                <input runat="server" type="text" class="form-control" placeholder="Username" id="txt_usrname" />
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -234,7 +269,7 @@
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
                                 <label>Password</label>
-                                <input type="password" class="form-control" placeholder="Password" id="pw">
+                                <input runat="server" type="password" class="form-control" placeholder="Password" id="pw">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
@@ -243,17 +278,17 @@
                         <div id="success"></div>
                         <div class="row">
                             <div class="form-group col-xs-12">
-                                <button type="button" class="btn btn-success btn-lg">Sign Up</button>
+                                <asp:Button runat="server" ID="btn_up" OnClick="btn_up_Click" CssClass="btn btn-success btn-lg" text="Sign Up" />
                             </div>
                         </div>
-                    </form>
+                    
                 </div>
             </div>
         </div>
     </section>
 
-
-
+<input type="hidden" runat="server" id="Status" />
+</form>
     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
@@ -328,9 +363,163 @@
     <script src="../../assets/js/freelancer.min.js"></script>
     <script src="../../assets/global/plugins/bootstrap/js/bootstrap.js"></script>
     <script type="text/javascript">
+        var products = null;
+        var allTemplates = null;
+        var requirements = [];
+        var selectedProduct = {};
+        var selectedTemplate = {};
+
+        $("document").ready(function () {
+            products = JSON.parse($("#<%=productData.ClientID%>").val());
+
+
+
+        });
+
         function setProductModal(e) {
             $("#modalProducts").modal("show");
+            var html = "";
+            $("#<%=div_templates.ClientID%>").html(html);
+            for (var i = 0; i < products.length; i++) {
+                for (var j = 0; j < products[i].Templates.length; j++) {
+
+                    if (products[i].CategoryID == $(e).attr("id")) {
+                        selectedProduct = products[i];
+                        html += "<div class=\"col-sm-4 portfolio-item\">";
+                        html += "<a id=\"" + products[i].Templates[j].TemplateID + "\" onClick=\"setRequirements(this);\" href=\"#portfolioModal5\" class=\"portfolio-link\" data-toggle=\"modal\">";
+                        html += "<div class=\"caption\">";
+                        html += "<div class=\"caption-content\">";
+
+                        html += "</div>";
+                        html += "</div>";
+                        html += "<img style=\"height: 150px; width: 300px;\" src =\"../.." + products[i].Templates[j].TemplateImage + "\" class=\"img-responsive\" alt=\"\">";
+                        html += "<label class\"form-control\"><strong>" + products[i].Templates[j].TemplateName + "</strong></label>"
+                        html += "<br/>";
+                        html += "</a>";
+                        html += "</div>";
+                        $("#<%=div_templates.ClientID%>").html(html);
+                    }
+
+                }
+            }
         }
+        function setRequirements(e) {
+            var html = "";
+            for (var i = 0; i < selectedProduct.Templates.length; i++) {
+                if (selectedProduct.Templates[i].TemplateID == $(e).attr("id")) {
+                    selectedTemplate = selectedProduct.Templates[i];
+                    requirements = selectedTemplate.Requirements;
+                }
+            }
+            html += "";
+            for (var i = 0; i < requirements.length; i++) {
+                if (requirements[i].DataType == "text") {
+                    html += setTextBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                }
+                if (requirements[i].DataType == "tel") {
+                    html += setTelBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                }
+                if (requirements[i].DataType == "email") {
+                    html += setEmailBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                }
+                if (requirements[i].DataType == "number") {
+                    html += setNumberBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                }
+                if (requirements[i].DataType == "file") {
+                    html += setFileInput(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                }
+            }
+            $("#<%=div_req.ClientID%>").html("");
+            $("#<%=div_req.ClientID%>").html(html);
+
+            $("#modalRequirements").modal("show");
+        }
+
+        function setTextBox(id, label, key) {
+            var html = "";
+            html += "<div class=\"row\">";
+            html += "<div class=1></div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<label class=\"form-action\">" + label + "</label>";
+            html += "</div>"
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-7\">"
+            html += "<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-control\" required=\"required\" data-key=\"" + key + "\"></input>";
+            html += "</div>";
+            html += "</div>";
+            html += "<br/>";
+
+            return html;
+        }
+        function setTelBox(id, label, key) {
+            var html = "";
+            html += "<div class=\"row\">";
+            html += "<div class=1></div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<label class=\"form-action\">" + label + "</label>";
+            html += "</div>"
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-7\">"
+            html += "<input type=\"tel\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-control\" required=\"required\" data-key=\"" + key + "\"></input>";
+            html += "</div>";
+            html += "</div>";
+            html += "<br/>";
+
+            return html;
+        }
+        function setNumberBox(id, label, key) {
+            var html = "";
+            html += "<div class=\"row\">";
+            html += "<div class=1></div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<label class=\"form-action\">" + label + "</label>";
+            html += "</div>"
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-7\">"
+            html += "<input type=\"number\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-control\" required=\"required\" data-key=\"" + key + "\"></input>";
+            html += "</div>";
+            html += "</div>";
+            html += "<br/>";
+
+            return html;
+        }
+
+
+
+        function setEmailBox(id, label, key) {
+            var html = "";
+            html += "<div class=row>";
+            html += "<div class=1></div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<label class=\"form-action\">" + label + "</label>";
+            html += "</div>"
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-7\">";
+            html += "<input type=\"text\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-control\" required=\"required\" data-key=\"" + key + "\"></input>";
+            html += "</div>";
+            html += "</div>";
+            html += "<br/>";
+
+            return html;
+        }
+
+        function setFileInput(id, label, key) {
+            var html = "";
+            html += "<div class=row>";
+            html += "<div class=1></div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<label class=\"form-control\">" + label + "</label>";
+            html += "</div>";
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-7\">";
+            html += "<input type=\"file\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-action\" required=\"required\" data-key=\"" + key + "\"></input>";
+            html += "</div>";
+            html += "</div>";
+            html += "<br/>";
+
+            return html;
+        }
+
     </script>
    
 </body>

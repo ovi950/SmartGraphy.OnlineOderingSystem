@@ -19,16 +19,56 @@
         <a href="Default.aspx">HOME</a>
         <small>Product Templates</small>
     </h3>
-    <form runat="server" id="catForm">
+    <form runat="server" id="catForm" novalidate="novalidate">
+        <div id="modalRequirements" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Set Requirements</h4>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="row" id="div_requirements">
+
+                            <div class="row">
+                                <span class="col-md-1"></span>
+                                <div class="col-md-2">
+                                    <label class="form-actions">select Requirements</label>
+                                </div>
+                                <br />
+                                <div class="col-md-5">
+                                    <select id="ddlRequirements" multiple="true" class="form-control" runat="server"></select>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+
+                        <button type="button" onclick="setValues();" class="btn btn-default" data-dismiss="modal">Set</button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+
+
+
         <div class="modal fade" id="modal_cat" style="display: none;">
             <div class="modal-dialog modal-lg">
                 <div class="modal-content c-square">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close" id="btn_close1">
-                            <span aria-hidden="true">×</span>
+                            <span aria-hidden="true">X</span>
                         </button>
 
-                        <h4 id="lbl_style" class="modal-title bold uppercase font-grey-cascade">Category Details</h4>
+                        <h4 id="lbl_style" class="modal-title bold uppercase font-grey-cascade">Template Details</h4>
                     </div>
                     <div class="modal-body">
 
@@ -38,7 +78,7 @@
                                 <label class="form-actions">Template Name</label>
                             </div>
                             <div class="col-md-5">
-                                <input type="text" id="txt_temName" class="form-control" runat="server" />
+                                <input type="text" required="required" id="txt_temName" class="form-control" runat="server" />
                             </div>
                         </div>
                         <br />
@@ -48,7 +88,7 @@
                                 <label class="form-actions">Template Image</label>
                             </div>
                             <div class="col-md-5">
-                                <input type="file" id="file_Template" class="form-control" runat="server" />
+                                <input type="file" required="required" id="file_Template" class="form-control" runat="server" />
                                 <input type="hidden" id="hdnID" runat="server" />
                             </div>
                         </div>
@@ -70,7 +110,7 @@
                                 <label class="form-actions">Required Days</label>
                             </div>
                             <div class="col-md-5">
-                                <input type="number" id="txtRequiredDays" runat="server" class="form-control" />
+                                <input type="number" id="txtRequiredDays" required="required" runat="server" class="form-control" />
                             </div>
                         </div>
                         <br />
@@ -80,7 +120,7 @@
                                 <label class="form-actions">Unit Price</label>
                             </div>
                             <div class="col-md-5">
-                                <input type="number" id="Number1" runat="server" class="form-control" />
+                                <input type="number" required="required" id="txtPrice" runat="server" class="form-control" />
                             </div>
                         </div>
 
@@ -100,13 +140,13 @@
                 </div>
             </div>
         </div>
-        
+
     </form>
     <div id="div_compose" class="col-md-12">
         <div class="portlet light bordered">
             <div class="portlet-title">
                 <div class="caption">
-                    <span runat="server" class="caption-subject font-blue sbold uppercase">Product Categories</span>
+                    <span runat="server" class="caption-subject font-blue sbold uppercase">Product Templates</span>
                 </div>
                 <div class="actions">
 
@@ -137,6 +177,7 @@
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="headContent" runat="server">
     <script type="text/javascript">
+        var bntISVisible = false;
         $("document").ready(function () {
             $("#btn_addnew").click(function () {
                 $("#<%=btnAddCat.ClientID%>").show();
@@ -144,17 +185,64 @@
                 $("#<%=txt_temName.ClientID%>").val("");
             });
 
+            $("#btnNewRequirement").click(function () {
+                bntISVisible = !bntISVisible;
 
+            });
         });
 
-        function editCategory(e) {
+        function editTemplate(e) {
             $("#<%=btnAddCat.ClientID%>").hide();
             $("#<%=btn_update.ClientID%>").show();
             $("#<%=txt_temName.ClientID%>").val($(e).attr("data-name"));
+            $("#<%=txtPrice.ClientID%>").val($(e).attr("data-price"));
+            $("#<%=txtRequiredDays.ClientID%>").val($(e).attr("data-days"));    
             $("#<%=hdnID.ClientID%>").val($(e).attr("id"));
             $("#modal_cat").modal("show");
         }
+        function setRequirements(e) {
+            var param={"templateID":$(e).attr("id")}
+           
+        
+            
 
+            
+            var data =JSON.parse( $(e).attr("data-requirements"));
+            <%--$("#<%=ddlRequirements.ClientID%>").select2({data:data});--%>
+               
+            
+             $("#<%=ddlRequirements.ClientID%>").val(data);
+            $("#<%=hdnID.ClientID%>").val($(e).attr("id"));
+            $("#modalRequirements").modal("show");
+        }
+
+        function setValues() {
+            var requirements = $("#<%=ddlRequirements.ClientID%>").val()
+            
+            var templateID=$("#<%=hdnID.ClientID%>").val();
+            var param={
+                "requirement":requirements,
+                "templateID":templateID
+            };
+
+            $.ajax(
+                   {
+                       type: "POST",
+                       contentType: "application/json; charset=utf-8",
+                       //data: "wrkcenter=workCenter&wrkCenterGroup=workCenterGroup&section=section&plantID=plant&primaryField=primayField",
+                       data: JSON.stringify(param),
+                       dataType: "json",
+                       url: "ConfigTemplates.aspx/setRiqurements",
+                       success: function (result) {
+                           //var data1 = JSON.parse(result.d);
+                           toastr.info("done");
+                           }
+
+                       }
+                   
+
+                   );
+        }
     </script>
 </asp:Content>
 

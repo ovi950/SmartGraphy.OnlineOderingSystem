@@ -5402,7 +5402,6 @@
     <Content Include="assets\global\plugins\angularjs\angular-sanitize.min.js.map" />
     <Content Include="assets\global\plugins\angularjs\angular-touch.min.js.map" />
     <Content Include="assets\global\plugins\angularjs\angular.min.js.map" />
-    <Content Include="assets\global\plugins\angularjs\plugins\angular-file-upload\upload.php" />
     <Content Include="assets\global\plugins\autosize\readme.md" />
     <Content Include="assets\global\plugins\backstretch\LICENSE-MIT" />
     <Content Include="assets\global\plugins\backstretch\README.md" />
@@ -5464,9 +5463,7 @@
     <Content Include="assets\global\plugins\ckeditor\plugins\wsc\LICENSE.md" />
     <Content Include="assets\global\plugins\ckeditor\plugins\wsc\README.md" />
     <Content Include="assets\global\plugins\ckeditor\README.md" />
-    <Content Include="assets\global\plugins\ckeditor\samples\assets\posteddata.php" />
     <Content Include="assets\global\plugins\ckeditor\samples\plugins\htmlwriter\assets\outputforflash\outputforflash.fla" />
-    <Content Include="assets\global\plugins\ckeditor\samples\sample_posteddata.php" />
     <Content Include="assets\global\plugins\ckeditor\skins\moono\readme.md" />
     <Content Include="assets\global\plugins\clockface\LICENSE-MIT" />
     <Content Include="assets\global\plugins\clockface\README.md" />
@@ -5478,7 +5475,6 @@
     <Content Include="assets\global\plugins\datatables\images\Sorting icons.psd" />
     <Content Include="assets\global\plugins\dropzone\LICENSE" />
     <Content Include="assets\global\plugins\dropzone\README.md" />
-    <Content Include="assets\global\plugins\dropzone\upload.php" />
     <Content Include="assets\global\plugins\fancybox\CHANGELOG.md" />
     <Content Include="assets\global\plugins\fancybox\README.md" />
     <Content Include="assets\global\plugins\flowchart\flowchart.min.map" />
@@ -5490,9 +5486,6 @@
     <Content Include="assets\global\plugins\fuelux\COPYING" />
     <Content Include="assets\global\plugins\fuelux\README.md" />
     <Content Include="assets\global\plugins\fullcalendar\demos\json\events.json" />
-    <Content Include="assets\global\plugins\fullcalendar\demos\php\get-events.php" />
-    <Content Include="assets\global\plugins\fullcalendar\demos\php\get-timezones.php" />
-    <Content Include="assets\global\plugins\fullcalendar\demos\php\utils.php" />
     <Content Include="assets\global\plugins\gmaps\README.md" />
     <Content Include="assets\global\plugins\icheck\.gitignore" />
     <Content Include="assets\global\plugins\icheck\bower.json" />
@@ -5506,8 +5499,6 @@
     <Content Include="assets\global\plugins\icheck\demo\css\montserrat-regular.woff" />
     <Content Include="assets\global\plugins\icheck\icheck.jquery.json" />
     <Content Include="assets\global\plugins\icheck\README.md" />
-    <Content Include="assets\global\plugins\jcrop\crop-demo.php" />
-    <Content Include="assets\global\plugins\jcrop\demos\crop.php" />
     <Content Include="assets\global\plugins\jcrop\README.md" />
     <Content Include="assets\global\plugins\jquery-bootpag\README.md" />
     <Content Include="assets\global\plugins\jquery-easypiechart\LICENSE" />
@@ -5595,13 +5586,9 @@
     <Content Include="assets\global\plugins\plupload\readme.md" />
     <Content Include="assets\global\plugins\revo-slider\css\navigation-skins\.DS_Store" />
     <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\.DS_Store" />
-    <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\css\index.php" />
-    <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\fonts\index.php" />
     <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.eot" />
     <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.ttf" />
     <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\fonts\Pe-icon-7-stroke.woff" />
-    <Content Include="assets\global\plugins\revo-slider\fonts\pe-icon-7-stroke\index.php" />
-    <Content Include="assets\global\plugins\revo-slider\fonts\revicons\index.php" />
     <Content Include="assets\global\plugins\revo-slider\fonts\revicons\revicons.eot" />
     <Content Include="assets\global\plugins\revo-slider\fonts\revicons\revicons.ttf" />
     <Content Include="assets\global\plugins\revo-slider\fonts\revicons\revicons.woff" />
@@ -5716,10 +5703,13 @@
     <Content Include="UI\Backend\Admin\Inbox.aspx" />
     <Content Include="UI\Backend\Admin\ManageUsers.aspx" />
     <Content Include="UI\Backend\Designer\Default.aspx" />
+    <Content Include="UI\Backend\Designer\Inbox.aspx" />
+    <Content Include="UI\Backend\Designer\TemplateRequirements.aspx" />
     <Content Include="UI\Backend\Supervisor\ConfigCategories.aspx" />
     <Content Include="UI\Backend\Supervisor\Default.aspx" />
-    <Content Include="UI\Backend\Supervisor\Inbox.aspx" />
     <Content Include="UI\Backend\Designer\ConfigTemplates.aspx" />
+    <Content Include="UI\Backend\Supervisor\Inbox.aspx" />
+    <Content Include="UI\Backend\Supervisor\Login.aspx" />
     <Content Include="UI\Customer\Default.aspx" />
     <Content Include="WebServices\BackendWebservice.asmx" />
     <Content Include="UI\Backend\Site1.Master" />
@@ -5814,6 +5804,20 @@
     <Compile Include="UI\Backend\Designer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Backend\Designer\Inbox.aspx.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\Inbox.aspx.designer.cs">
+      <DependentUpon>Inbox.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\TemplateRequirements.aspx.cs">
+      <DependentUpon>TemplateRequirements.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\TemplateRequirements.aspx.designer.cs">
+      <DependentUpon>TemplateRequirements.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Backend\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5842,6 +5846,13 @@
     <Compile Include="UI\Backend\Supervisor\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Backend\Designer\ConfigTemplates.aspx.cs">
+      <DependentUpon>ConfigTemplates.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\ConfigTemplates.aspx.designer.cs">
+      <DependentUpon>ConfigTemplates.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Backend\Supervisor\Inbox.aspx.cs">
       <DependentUpon>Inbox.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5849,12 +5860,12 @@
     <Compile Include="UI\Backend\Supervisor\Inbox.aspx.designer.cs">
       <DependentUpon>Inbox.aspx</DependentUpon>
     </Compile>
-    <Compile Include="UI\Backend\Designer\ConfigTemplates.aspx.cs">
-      <DependentUpon>ConfigTemplates.aspx</DependentUpon>
+    <Compile Include="UI\Backend\Supervisor\Login.aspx.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="UI\Backend\Designer\ConfigTemplates.aspx.designer.cs">
-      <DependentUpon>ConfigTemplates.aspx</DependentUpon>
+    <Compile Include="UI\Backend\Supervisor\Login.aspx.designer.cs">
+      <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
     <Compile Include="UI\Customer\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
@@ -5871,8 +5882,10 @@
   <ItemGroup>
     <Folder Include="assets\apps\img\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
+    <Folder Include="assets\global\plugins\fullcalendar\demos\php\" />
     <Folder Include="Uploads\Attachments\" />
     <Folder Include="Uploads\ProductCategories\" />
+    <Folder Include="Uploads\Templates\" />
     <Folder Include="Uploads\UserPhotos\" />
   </ItemGroup>
   <ItemGroup>

@@ -43,7 +43,7 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Admin
                     html += "<td>" + user.FName + "</td>";
                     html += "<td>" + user.LName + "</td>";
                     html += "<td>" + user.ContactNo + "</td>";
-                    html += "<td>" + user.ContactNo + "</td>";
+                    html += "<td>" + user.Email + "</td>";
                     html += "<td><button  onClick='editUser(this);' data-usertype='" + user.UserType + "'  data-toggle = 'modal' href = '#modal_user'  class='btn blue btn-xs' id='" + user.Username + "' data-fname='" + user.FName + "' data-lname='" + user.LName + "' data-nic='" + user.NicNo + "' data-adLine1='" + user.AdLine1 + "' data-adLine2='" + user.AdLine2 + "' data-adLine3='" + user.AdLine3 + "'data-contactNo='" + user.ContactNo + "'data-email='" + user.Email + "' data-img='" + user.PhotoPath + "'> <i class='fa-pencil' aria-hidden='true'></i>Edit Details</button></td>";
                     if (user.Status == "blocked")
                     {

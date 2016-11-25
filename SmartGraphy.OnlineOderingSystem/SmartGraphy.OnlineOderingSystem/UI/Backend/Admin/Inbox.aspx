@@ -307,7 +307,7 @@
             $("#div_msgcontent").text($(e).attr('data-msg'));
             $("#div_title").text($(e).attr('data-title'));
             $("#sender").val($(e).attr('data-sender'));
-            alert($(e).attr('id'));
+            
             $("#reciever").val($(e).attr('data-sender'));
             $("#title").val($(e).attr('data-title'));
             $.ajax({
@@ -331,7 +331,7 @@
             $("#div_msgcontent").text($(e).attr('data-msg'));
             $("#div_title").text($(e).attr('data-title'));
             $("#sender").val($(e).attr('data-sender'));
-            alert($("#sender").val());
+            
             $("#reciever").val($(e).attr('data-sender'));
             $("#title").val($(e).attr('data-title'));
 

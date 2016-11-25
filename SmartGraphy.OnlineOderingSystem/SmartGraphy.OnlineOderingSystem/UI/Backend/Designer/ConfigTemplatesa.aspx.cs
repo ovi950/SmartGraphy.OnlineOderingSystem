@@ -5,9 +5,9 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 
-namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Supervisor
+namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Designer
 {
-    public partial class Inbox : System.Web.UI.Page
+    public partial class ConfigTemplates : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

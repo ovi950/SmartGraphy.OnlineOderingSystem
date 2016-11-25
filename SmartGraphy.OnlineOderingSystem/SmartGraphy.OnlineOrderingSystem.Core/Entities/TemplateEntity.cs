@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using SmartGraphy.OnlineOrderingSystem.Core.DTO;
 
 namespace SmartGraphy.OnlineOrderingSystem.Core.Entities
 {
@@ -14,6 +15,8 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.Entities
         public int RequiredDays { get; set; }
         public double UnitPrice { get; set; }
         public string TemplateImage { get; set; }
+
+        public List<RequirementEntity> Requirements { get; set; }
         
     }
 }

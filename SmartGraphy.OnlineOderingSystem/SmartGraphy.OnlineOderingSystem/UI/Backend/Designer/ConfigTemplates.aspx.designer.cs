@@ -31,6 +31,15 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer {
         protected global::System.Web.UI.HtmlControls.HtmlForm catForm;
         
         /// <summary>
+        /// ddlRequirements control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlRequirements;
+        
+        /// <summary>
         /// txt_temName control.
         /// </summary>
         /// <remarks>
@@ -76,13 +85,13 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer {
         protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtRequiredDays;
         
         /// <summary>
-        /// Number1 control.
+        /// txtPrice control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl Number1;
+        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtPrice;
         
         /// <summary>
         /// btn_update control.

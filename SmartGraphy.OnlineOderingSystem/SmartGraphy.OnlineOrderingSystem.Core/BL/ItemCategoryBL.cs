@@ -34,7 +34,18 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
                                                       TemplateImage = t.TemplateImage,
                                                       TemplateName = t.TemplateName,
                                                       UnitPrice = Convert.ToDouble(t.UnitPrice),
+                                                      Requirements = (from x in t.TB_ItemRequirements
+                                                                      select new RequirementEntity()
+                                                                      {
+                                                                          ControllerID=x.TB_Requirement.ControllerID,
+                                                                          DataType= x.TB_Requirement.DataType,
+                                                                          Description= x.TB_Requirement.Description,
+                                                                          RequirementID= x.TB_Requirement.ReqNo
+
+                                                                      }
+                                                                    ).ToList(),
                                                   }).ToList()
+                                        
                                  }
 
 

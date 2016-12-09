@@ -121,5 +121,31 @@ namespace SmartGraphy.OnlineOderingSystem.WebServices
                 msgSender.SendMessage(Session["username"].ToString(), recievers, title, message);
             
         }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public  void SignOut()
+        {
+            Session.Clear();
+            
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public void AssignUsers(int orderID, string username)
+        {
+            new AssignmentBL().AssignDesigners(orderID, username, Session["username"].ToString());
+
+        }
+
+        [WebMethod(EnableSession = true)]
+        [ScriptMethod(UseHttpGet = false, ResponseFormat = ResponseFormat.Json)]
+        public void RejrctOrder(int orderID, string reason)
+        {
+            new AssignmentBL().ReajectOrder(orderID,reason);
+
+        }
+
+        //public void ChangeStatus
     }
 }

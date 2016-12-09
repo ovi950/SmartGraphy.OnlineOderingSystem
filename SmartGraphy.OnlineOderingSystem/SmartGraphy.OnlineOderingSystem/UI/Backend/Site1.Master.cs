@@ -11,7 +11,7 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session["username"] == null)
+            if (Session["usertype"] == null)
             {
                 Response.Redirect(ResolveUrl("~/UI/Backend/Login.aspx"));
             }
@@ -28,13 +28,15 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Backend
 
                 if (Session["usertype"].ToString() == "manager")
                 {
-                    html += " <li><strong><a href=\"ConfigCategories.aspx\"> Product templates </a></strong></li>";
+                    html += " <li><strong><a href=\"ConfigCategories.aspx\"> Product Categories </a></strong></li>";
+                    html += " <li><strong><a href=\"ViewOrders.aspx\"> View All Orders </a></strong></li>";
                 }
 
                 if (Session["usertype"].ToString() == "designer")
                 {
                     html += " <li><strong><a href=\"ConfigTemplates.aspx\"> Product Templates </a></strong></li>";
                     html += " <li><strong><a href=\"TemplateRequirements.aspx\">  Template Requirements </a></strong></li>";
+                    html += " <li><strong><a href=\"ViewOrders.aspx\"> View Assigned Orders </a></strong></li>";
                 }
                 div_menu.InnerHtml = html;
             }

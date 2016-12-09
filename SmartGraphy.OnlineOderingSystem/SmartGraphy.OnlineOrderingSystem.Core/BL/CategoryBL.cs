@@ -45,7 +45,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 
                     CategoryName = categoryName,
                     CategoryImage = categoryImg,
-                    IsEnabled = false,
+                    IsEnabled = true,
                     CreatedBy = userName,
                     CreatedOn=(DateTime?)DateTime.Today,
                     LastUpdatedBy=userName,

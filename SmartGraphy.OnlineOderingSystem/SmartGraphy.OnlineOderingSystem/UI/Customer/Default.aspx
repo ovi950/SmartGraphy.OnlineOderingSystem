@@ -12,10 +12,11 @@
     <meta name="author" content="">
 
     <title>Smart Graphy</title>
-    
+
     <!-- Bootstrap Core CSS -->
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Theme CSS -->
+    <link href="../../assets/global/plugins/bootstrap-toastr/toastr.min.css" rel="stylesheet" type="text/css" />
     <link href="../../assets/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link href="../../assets/css/freelancer.min.css" rel="stylesheet" />
     <!-- Custom Fonts -->
@@ -29,43 +30,149 @@
         <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
-        <!-- jQuery -->
+    <!-- jQuery -->
     <script src="../../assets/vendor/jquery/jquery.min.js"></script>
-     
+
 </head>
 
 <body id="page-top" class="index">
-    <form id="data" runat="server" action="Default.aspx" method="post">
-    <!-- Modal -->
-   <input type="hidden" runat="server" id="img">
+    <form id="data" runat="server" novalidate="novalidate" enctype="multipart/form-data" action="Default.aspx" method="post">
+        <!-- Modal -->
+        <input type="hidden" runat="server" id="img">
 
-<div id="modalProducts" class="modal fade" style=" zoom: 150%;" role="dialog">
-  <div class="modal-dialog">
+        <div id="modalProducts" class="modal fade" style="zoom: 150%;" role="dialog">
+            <div class="modal-dialog">
 
-    <!-- Modal content-->
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal">&times;</button>
-        <h4 class="modal-title">Templates</h4>
-      </div>
-      <div class="modal-body">
-        <div class="row" id="div_templates" runat="server">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title">Templates</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="div_templates" runat="server">
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
 
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
         </div>
-      </div>
-      <div class="modal-footer">
-          
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-      </div>
-    </div>
 
-  </div>
-</div>    
+         <div id="placedOrder" class="modal fade" role="dialog">
+            <div class="modal-dialog">
 
-       <input type="hidden" runat="server" id="Hidden1">
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="div_msg">
+                            
+                            
+                            
+                        </div>
+                        
+                    </div>
+                    <div class="modal-footer">
 
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
 
+            </div>
+        </div>
 
+        <div id="modalCart" class="modal fade"  role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row" id="cartBody" runat="server">
+                            <table class="table table-striped table-hover table-bordered" id="tbl_user">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Category Name</th>
+                                        <th>Tempalte Name</th>
+                                        <th>Unit Price</th>
+                                        <th>Qty</th>
+                                        <th>Sub Total</th>
+                                        <th></th>
+                                        
+                                    </tr>
+                                </thead>
+                                <tbody id="cart" runat="server">
+
+                                </tbody>
+                            </table>
+                        </div> 
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" ID="btn_placeOrder" OnClick="btn_placeOrder_Click" Text="Place Order" CssClass="btn bg-success"></asp:Button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div id="modalSignIn" class="modal fade" role="dialog">
+            <div class="modal-dialog">
+
+                <!-- Modal content-->
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        <h4 class="modal-title"></h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="row">
+                            <span class="col-md-1"></span>
+                            <div class="col-md-2">
+                                <label class="form-action">Username</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="text" id="txt_un" required="required" class="form-control" runat="server" />
+                            </div>
+                        </div>
+                        <br />
+                        <div class="row">
+                            <span class="col-md-1"></span>
+                            <div class="col-md-2">
+                                <label class="form-action">Password</label>
+                            </div>
+                            <div class="col-md-8">
+                                <input type="password" id="txt_pass" required="required" class="form-control" runat="server" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <asp:Button runat="server" OnClick="btnIn_Click" ID="btnIn" Text="Sign In" CssClass="btn btn-default" ></asp:Button>
+                        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <input type="hidden" runat="server" id="CategoryID">
+        <input type="hidden" runat="server" id="UnitPrice">
+        <input type="hidden" runat="server" id="TemplateName">
+        <input type="hidden" runat="server" id="CategoryName">
+        <input type="hidden" runat="server" id="hdnOrderID" />
+        <input type="hidden" runat="server" id="templateID1" />
 
 <div id="modalRequirements" class="modal fade"  role="dialog">
   <div class="modal-dialog">
@@ -80,9 +187,18 @@
         <div class="row" id="div_req" runat="server">
 
         </div>
+        <div class="row">
+           <div class="col-md-1"></div>
+           <div class="col-md-2"><label class="col-md-2">Qty</label></div>
+           <div class="col-md-7">
+               <input type="number" required="required" id="txt_Qty" class="form-control" runat="server" />
+               <input type="text" id="minVal" runat="server" hidden="hidden" value="100" />
+               <asp:CompareValidator ID="CompareValidator1" runat="server" ErrorMessage="Quantity must be more than 100 items" ControlToCompare="minVal" ControlToValidate="txt_Qty" Operator="GreaterThanEqual"></asp:CompareValidator>
+           </div>
+          </div>
       </div>
       <div class="modal-footer">
-         <button type="button" class="btn btn-default" runat="server" id="addCart" data-dismiss="modal">Add to cart</button> 
+         <asp:Button  CssClass="btn btn-default" runat="server" ID="addCart1" OnClick="addCart1_Click" Text="Add to cart"/> 
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
       </div>
     </div>
@@ -109,7 +225,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li class="hidden">
-                        <a href="#page-top"></a>
+                        <a href="#page-top"></a>    
                     </li>
                     <li class="page-scroll">
                         <a href="#about">About</a>
@@ -121,8 +237,13 @@
                         <a href="#contact">Sign Up</a>
                     </li>
                     <li id="li_signIn" runat="server"  class="page-scroll">
-                        <a href="#">Sign In</a>
+                        <a data-toggle="modal" data-target="#modalSignIn" href="#modalSignIn">Sign In</a>
                     </li>
+
+                     <li id="li_cart" runat="server"  class="page-scroll">
+                        <a data-toggle="modal" data-target="#modalCart" href="#modalCart">Shopping Cart</a>
+                    </li>
+
                     <li onclick="signOut();" hidden="hidden" runat="server" id="li_sginOut" class="page-scroll">
                         <a href="#">Sign out</a>
                     </li>
@@ -139,11 +260,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12">
-                    <img class="img-responsive" src="../../assets/img/profile.png" alt="">
+                    <img class="img-responsive" src="../../Images/Logo.PNG" alt="">
                     <div class="intro-text">
                         <span class="name">Smart Graphy</span>
                         <hr class="star-light">
-                        <span class="skills">Web Developer - Graphic Artist - User Experience Designer</span>
+                        <span class="skills"></span>
                     </div>
                 </div>
             </div>
@@ -180,7 +301,7 @@
         <div class="container">
             <div class="row" ">
                 <div class="col-lg-12 text-center">
-                    <h2>Portfolio</h2>
+                    <h2>Products</h2>
                     <hr class="star-primary">
                 </div>
             </div>
@@ -223,14 +344,14 @@
 
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Address Line1</label>
+                                <label>Shipping Address Line1</label>
                                 <input type="text" id="txt_adLine1" class="form-control" runat="server" placeholder="Address Line1">
                                 <p class="help-block text-danger"></p>
                             </div>
                         </div>
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Address Line2</label>
+                                <label>Shipping Address Line2</label>
                                 <input type="text" runat="server"  class="form-control" placeholder="Address Line2" id="txt_adline2">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -238,7 +359,7 @@
 
                         <div class="row control-group">
                             <div class="form-group col-xs-12 floating-label-form-group controls">
-                                <label>Address Line3</label>
+                                <label>Shipping Address Line3</label>
                                 <input type="text" runat="server" class="form-control" placeholder="Address Line3" id="txt_adline3">
                                 <p class="help-block text-danger"></p>
                             </div>
@@ -288,7 +409,7 @@
     </section>
 
 <input type="hidden" runat="server" id="Status" />
-</form>
+    </form>
     <!-- Footer -->
     <footer class="text-center">
         <div class="footer-above">
@@ -297,13 +418,13 @@
                     <div class="footer-col col-md-4">
                         <h3>Location</h3>
                         <p>
-                            3481 Melrose Place
+                            55/5B
                             <br>
-                            Beverly Hills, CA 90210
+                            Malwaththa Road, Petah
                         </p>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>Around the Web</h3>
+                        <%--<h3>Around the Web</h3>--%>
                         <ul class="list-inline">
                             <li>
                                 <a href="#" class="btn-social btn-outline"><i class="fa fa-fw fa-facebook"></i></a>
@@ -323,8 +444,8 @@
                         </ul>
                     </div>
                     <div class="footer-col col-md-4">
-                        <h3>About Freelancer</h3>
-                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>
+                        <%--<h3>About Freelancer</h3>
+                        <p>Freelance is a free to use, open source Bootstrap theme created by <a href="http://startbootstrap.com">Start Bootstrap</a>.</p>--%>
                     </div>
                 </div>
             </div>
@@ -333,7 +454,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-lg-12">
-                        Copyright &copy; Your Website 2016
+                        Copyright &copy; Smart Graphy 2016
                     </div>
                 </div>
             </div>
@@ -355,7 +476,7 @@
     <link href="../../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
     <!-- Plugin JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
-
+    <script src="../../assets/global/plugins/bootstrap-toastr/toastr.min.js" type="text/javascript"></script>
     <!-- Contact Form JavaScript -->
     <script src="../../assets/js/contact_me.js"></script>
     <script src="../../assets/js/jqBootstrapValidation.js"></script>
@@ -370,15 +491,35 @@
         var selectedTemplate = {};
 
         $("document").ready(function () {
+
             products = JSON.parse($("#<%=productData.ClientID%>").val());
 
+            if ($("#<%=Status.ClientID%>").val() == "") {
 
+                $("#<%=li_sginOut.ClientID%>").hide();
+            }
+            if ($("#<%=Status.ClientID%>").val() == "failed") {
 
+                toastr.error("invalid user details");
+            }
+            if ($("#<%=Status.ClientID%>").val() == "placed") {
+                
+                var html = "<p class=\"container\">Dear valuable customer. You have successfully placed an order.<br/> We will contact you within 24 hours. <a href=\"<%:ResolveUrl(hdnOrderID.Value)%>\" target=\"_blank\"> Click here to get your invoce</a></p>";
+                $("#div_msg").html(html);
+                $("#placedOrder").modal("show");
+                $("#<%=Status.ClientID%>").val("");
+            }
         });
 
         function setProductModal(e) {
-            $("#modalProducts").modal("show");
             var html = "";
+
+            $("#<%=CategoryID.ClientID%>").val($(e).attr("id"));
+            $("#<%=CategoryName.ClientID%>").val($(e).attr("data-name"));
+
+
+            $("#modalProducts").modal("show");
+
             $("#<%=div_templates.ClientID%>").html(html);
             for (var i = 0; i < products.length; i++) {
                 for (var j = 0; j < products[i].Templates.length; j++) {
@@ -386,14 +527,15 @@
                     if (products[i].CategoryID == $(e).attr("id")) {
                         selectedProduct = products[i];
                         html += "<div class=\"col-sm-4 portfolio-item\">";
-                        html += "<a id=\"" + products[i].Templates[j].TemplateID + "\" onClick=\"setRequirements(this);\" href=\"#portfolioModal5\" class=\"portfolio-link\" data-toggle=\"modal\">";
+                        html += "<a data-img=\"" + products[i].Templates[j].TemplateImage + "\" data-name=\"" + products[i].Templates[j].TemplateName + "\" data-price=\"" + products[i].Templates[j].UnitPrice + "\" id=\"" + products[i].Templates[j].TemplateID + "\" onClick=\"setRequirements(this);\" href=\"#portfolioModal5\" class=\"portfolio-link\" data-toggle=\"modal\">";
                         html += "<div class=\"caption\">";
                         html += "<div class=\"caption-content\">";
 
                         html += "</div>";
                         html += "</div>";
+                        html += "<label class=\"form-control\" style=\"text-align:center;\"><strong>" + products[i].Templates[j].TemplateName + " </strong></label>"
                         html += "<img style=\"height: 150px; width: 300px;\" src =\"../.." + products[i].Templates[j].TemplateImage + "\" class=\"img-responsive\" alt=\"\">";
-                        html += "<label class\"form-control\"><strong>" + products[i].Templates[j].TemplateName + "</strong></label>"
+                        html += "<label style=\"font-size: small;\" class=\"form-control\"><strong>Price Per Item - Rs " + products[i].Templates[j].UnitPrice + "</strong></label>"
                         html += "<br/>";
                         html += "</a>";
                         html += "</div>";
@@ -404,6 +546,9 @@
             }
         }
         function setRequirements(e) {
+            $("#<%=templateID1.ClientID%>").val($(e).attr("id"));
+            $("#<%=UnitPrice.ClientID%>").val($(e).attr("data-price"));
+            $("#<%=TemplateName.ClientID%>").val($(e).attr("data-name"));
             var html = "";
             for (var i = 0; i < selectedProduct.Templates.length; i++) {
                 if (selectedProduct.Templates[i].TemplateID == $(e).attr("id")) {
@@ -411,23 +556,49 @@
                     requirements = selectedTemplate.Requirements;
                 }
             }
-            html += "";
-            for (var i = 0; i < requirements.length; i++) {
-                if (requirements[i].DataType == "text") {
-                    html += setTextBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+            if ($("#<%=Status.ClientID%>").val() == "signedIn") {
+                html += "";
+                html + "<div class=\"row\">";
+                html += "<img  src =\"../.." + $(e).attr("data-img") + "\" style=\"width: 600px;\" class=\"img-responsive\" alt=\"\">";
+                html += "</div>";
+                html += "<br>";
+                for (var i = 0; i < requirements.length; i++) {
+                    if (requirements[i].DataType == "text") {
+                        html += setTextBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                    }
+                    if (requirements[i].DataType == "tel") {
+                        html += setTelBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                    }
+                    if (requirements[i].DataType == "email") {
+                        html += setEmailBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                    }
+                    if (requirements[i].DataType == "number") {
+                        html += setNumberBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
+                    }
+                    if (requirements[i].DataType == "file") {
+                        html += setFileInput(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID, "required");
+                    }
                 }
-                if (requirements[i].DataType == "tel") {
-                    html += setTelBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
-                }
-                if (requirements[i].DataType == "email") {
-                    html += setEmailBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
-                }
-                if (requirements[i].DataType == "number") {
-                    html += setNumberBox(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
-                }
-                if (requirements[i].DataType == "file") {
-                    html += setFileInput(requirements[i].ControllerID, requirements[i].Description, requirements[i].RequirementID);
-                }
+                html += setTextArea("txt_CusComments", "Your Comments(Optional)", 14);
+                //html += setFileInput("txt_additionalAttachments", "Additional Attachments(Optional)", 13);
+                html += "<div class=row>";
+                html += "<div class=\"col-md-1\"></div>";
+                html += "<div class=\"col-md-2\">";
+                html += "<label class=\"form-control\">Additional Attachments(Optional)</label>";
+                html += "</div>";
+                html += "<div class=\"col-md-1\"></div>";
+                html += "<div class=\"col-md-7\">";
+                html += "<input type=\"file\" id=\"file_additionalAttachments\" name=\"file_additionalAttachments\" class=\"form-action\"  data-key=\"14\"></input>";
+                html += "</div>";
+                html += "</div>";
+                html += "<br/>";
+            }
+            else {
+                html += "<div clsaa=\"container\">";
+                html += "<p>";
+                html += "<h1> Please Login or signup to place your Order </h1>";
+                html += "</p>";
+                html + "</div>";
             }
             $("#<%=div_req.ClientID%>").html("");
             $("#<%=div_req.ClientID%>").html(html);
@@ -438,7 +609,7 @@
         function setTextBox(id, label, key) {
             var html = "";
             html += "<div class=\"row\">";
-            html += "<div class=1></div>";
+            html += "<div class=\"col-md-1\"></div>";
             html += "<div class=\"col-md-2\">";
             html += "<label class=\"form-action\">" + label + "</label>";
             html += "</div>"
@@ -451,10 +622,28 @@
 
             return html;
         }
+
+        function setTextArea(id, label, key) {
+            var html = "";
+            html += "<div class=\"row\">";
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-2\">";
+            html += "<label class=\"form-action\">" + label + "</label>";
+            html += "</div>"
+            html += "<div class=\"col-md-1\"></div>";
+            html += "<div class=\"col-md-7\">"
+            html += "<textArea id=\"" + id + "\" name=\"" + id + "\" class=\"form-control\"  data-key=\"" + key + "\"></textArea>";
+            html += "</div>";
+            html += "</div>";
+            html += "<br/>";
+
+            return html;
+        }
+
         function setTelBox(id, label, key) {
             var html = "";
             html += "<div class=\"row\">";
-            html += "<div class=1></div>";
+            html += "<div class=\"col-md-1\"></div>";
             html += "<div class=\"col-md-2\">";
             html += "<label class=\"form-action\">" + label + "</label>";
             html += "</div>"
@@ -470,7 +659,7 @@
         function setNumberBox(id, label, key) {
             var html = "";
             html += "<div class=\"row\">";
-            html += "<div class=1></div>";
+            html += "<div class=\"col-md-1\"></div>";
             html += "<div class=\"col-md-2\">";
             html += "<label class=\"form-action\">" + label + "</label>";
             html += "</div>"
@@ -489,7 +678,7 @@
         function setEmailBox(id, label, key) {
             var html = "";
             html += "<div class=row>";
-            html += "<div class=1></div>";
+            html += "<div class=\"col-md-1\"></div>";
             html += "<div class=\"col-md-2\">";
             html += "<label class=\"form-action\">" + label + "</label>";
             html += "</div>"
@@ -503,25 +692,44 @@
             return html;
         }
 
-        function setFileInput(id, label, key) {
+        function setFileInput(id, label, key, required) {
             var html = "";
             html += "<div class=row>";
-            html += "<div class=1></div>";
+            html += "<div class=\"col-md-1\"></div>";
             html += "<div class=\"col-md-2\">";
             html += "<label class=\"form-control\">" + label + "</label>";
             html += "</div>";
             html += "<div class=\"col-md-1\"></div>";
             html += "<div class=\"col-md-7\">";
-            html += "<input type=\"file\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-action\" required=\"required\" data-key=\"" + key + "\"></input>";
+            html += "<input type=\"file\" id=\"" + id + "\" name=\"" + id + "\" class=\"form-action\" required=\"" + required + "\" data-key=\"" + key + "\"></input>";
             html += "</div>";
             html += "</div>";
             html += "<br/>";
 
             return html;
         }
+        function signOut() {
+            $.ajax(
+                   {
+                       type: "POST",
+                       contentType: "application/json; charset=utf-8",
+                       //data: "wrkcenter=workCenter&wrkCenterGroup=workCenterGroup&section=section&plantID=plant&primaryField=primayField",
+                       data: null,
+                       dataType: "json",
+                       url: "../../WebServices/BackendWebservice.asmx/SignOut",
+                       success: function (result) {
 
+                           window.location.replace("Default.aspx");
+
+                       }
+
+                   }
+
+
+                   );
+        }
     </script>
-   
+
 </body>
 
 </html>

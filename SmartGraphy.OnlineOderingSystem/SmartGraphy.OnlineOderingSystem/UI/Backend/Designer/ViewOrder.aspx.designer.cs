@@ -7,10 +7,10 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace SmartGraphy.OnlineOderingSystem.UI.Customer {
+namespace SmartGraphy.OnlineOderingSystem.UI.Backend.Designer {
     
     
-    public partial class ConfigTemplates {
+    public partial class ViewOrder {
         
         /// <summary>
         /// hdnProductCat control.
@@ -22,93 +22,120 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer {
         protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnProductCat;
         
         /// <summary>
-        /// catForm control.
+        /// headerID control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlForm catForm;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden headerID;
         
         /// <summary>
-        /// ddlRequirements control.
+        /// user control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlRequirements;
+        protected global::System.Web.UI.HtmlControls.HtmlInputHidden user;
         
         /// <summary>
-        /// txt_temName control.
+        /// tbl_designers control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText txt_temName;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tbl_designers;
         
         /// <summary>
-        /// file_Template control.
+        /// div_order control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputFile file_Template;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl div_order;
         
         /// <summary>
-        /// hdnID control.
+        /// lblOrderDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputHidden hdnID;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblOrderDate;
         
         /// <summary>
-        /// ddlCat control.
+        /// lblEndDate control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect ddlCat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblEndDate;
         
         /// <summary>
-        /// txtPrice control.
+        /// LblCustomerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputGenericControl txtPrice;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl LblCustomerName;
         
         /// <summary>
-        /// btn_update control.
+        /// lblAd1 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btn_update;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAd1;
         
         /// <summary>
-        /// btnAddCat control.
+        /// lblAd2 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button btnAddCat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAd2;
         
         /// <summary>
-        /// tbl_cat control.
+        /// lblAd3 control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl tbl_cat;
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblAd3;
+        
+        /// <summary>
+        /// lblStatus control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblStatus;
+        
+        /// <summary>
+        /// lblCountItems control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl lblCountItems;
+        
+        /// <summary>
+        /// orderBody control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl orderBody;
     }
 }

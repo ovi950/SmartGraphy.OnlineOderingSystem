@@ -31,6 +31,14 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="itextsharp, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\iTextSharp.5.5.10\lib\itextsharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="itextsharp.xmlworker, Version=5.5.10.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
+      <HintPath>..\packages\itextsharp.xmlworker.5.5.10\lib\itextsharp.xmlworker.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
@@ -45,9 +53,13 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BL\AbstractBL.cs" />
+    <Compile Include="BL\AssignmentBL.cs" />
     <Compile Include="BL\CategoryBL.cs" />
     <Compile Include="BL\ItemCategoryBL.cs" />
     <Compile Include="BL\MessagingBL.cs" />
+    <Compile Include="BL\OrderBL.cs" />
+    <Compile Include="BL\orderFormHeader.cs" />
+    <Compile Include="BL\PDFGenerator.cs" />
     <Compile Include="BL\RequirementBL.cs" />
     <Compile Include="BL\TemplateBL.cs" />
     <Compile Include="BL\UsersBL.cs" />
@@ -56,12 +68,20 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>EntityManager.dbml</DependentUpon>
     </Compile>
-    <Compile Include="Entities\CustomerBL.cs" />
+    <Compile Include="BL\CustomerBL.cs" />
+    <Compile Include="Entities\CustomerEntity.cs" />
     <Compile Include="Entities\EmployeeEntity.cs" />
     <Compile Include="Entities\ItemCategoryEntity.cs" />
     <Compile Include="Entities\MessageAttachmentsEntity.cs" />
     <Compile Include="Entities\MessagingEntity.cs" />
+    <Compile Include="Entities\OrderDetailsEntity.cs" />
+    <Compile Include="Entities\OrderEntity.cs" />
+    <Compile Include="Entities\OrderHeaderEntity.cs" />
+    <Compile Include="Entities\OrderRequirementEntity.cs" />
+    <Compile Include="Entities\OrderRequirements.cs" />
     <Compile Include="Entities\RequirementEntity.cs" />
+    <Compile Include="Entities\ShoppingCartEntity.cs" />
+    <Compile Include="Entities\ShoppingCartHeader.cs" />
     <Compile Include="Entities\TemplateEntity.cs" />
     <Compile Include="Entities\UserEntity.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_036C0B5B-1481-4323-8D20-8F5ADCB23D92.cs" />
@@ -82,6 +102,7 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

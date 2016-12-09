@@ -15,16 +15,19 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            LoadTemplates();
-            ddlCat.DataSource = new CategoryBL().GetAllAvailableCategories();
-            ddlCat.DataTextField = "CategoryName";
-            ddlCat.DataValueField = "CategoryID";
-            ddlCat.DataBind();
+            if (!Page.IsPostBack)
+            {
+                LoadTemplates();
+                ddlCat.DataSource = new CategoryBL().GetAllAvailableCategories();
+                ddlCat.DataTextField = "CategoryName";
+                ddlCat.DataValueField = "CategoryID";
+                ddlCat.DataBind();
 
-            ddlRequirements.DataSource = new RequirementBL().GetAllRequirements();
-            ddlRequirements.DataTextField = "Description";
-            ddlRequirements.DataValueField = "ReqNo";
-            ddlRequirements.DataBind();
+                ddlRequirements.DataSource = new RequirementBL().GetAllRequirements().Where(x=>x.ReqNo!=13|| x.ReqNo != 14);
+                ddlRequirements.DataTextField = "Description";
+                ddlRequirements.DataValueField = "ReqNo";
+                ddlRequirements.DataBind(); 
+            }
 
         }
 
@@ -46,7 +49,7 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer
                    x.Add(item.ReqNo);
                 }
                 
-                html.Append(string.Format($"<tr><td>{template.TemplateName}</td><td>{template.IsEnable}</td><td>{template.CreatedOn}</td><td>{template.LastUpdatedOn}</td> <td> <button id=\"{template.ItemNo}\" type=\"button\" class=\"btn blue\" data-name=\"{template.TemplateName}\" data-requirements=\"{new JavaScriptSerializer().Serialize(x)}\" data-image=\"{template.TemplateImage}\" onClick=\"setRequirements(this);\" >Set Requirements</button></td> <td><button id=\"{template.ItemNo}\" type=\"button\" class=\"btn blue\" data-name=\"{template.TemplateName}\" data-cat=\"{template.CategoryID}\" data-days=\"{template.RequiredDays}\" data-price=\"{template.UnitPrice}\" data-image=\"{template.TemplateImage}\" onClick=\"editTemplate(this);\" > Edit</button> </tr>"));
+                html.Append(string.Format($"<tr><td>{template.TemplateName}</td><td>{template.IsEnable}</td><td>{template.CreatedOn}</td><td>{template.LastUpdatedOn}</td> <td> <button id=\"{template.ItemNo}\" type=\"button\" class=\"btn blue\" data-name=\"{template.TemplateName}\" data-requirements=\"{new JavaScriptSerializer().Serialize(x)}\" data-image=\"{template.TemplateImage}\" onClick=\"setRequirements(this);\" >Set Requirements</button></td> <td><button id=\"{template.ItemNo}\" type=\"button\" class=\"btn blue\" data-name=\"{template.TemplateName}\" data-cat=\"{template.CategoryID}\"  data-price=\"{template.UnitPrice}\" data-image=\"{template.TemplateImage}\" onClick=\"editTemplate(this);\" > Edit</button> </tr>"));
             }
             tbl_cat.InnerHtml = html.ToString();
         }
@@ -57,7 +60,7 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer
             try
             {
                 file_Template.PostedFile.SaveAs(string.Format($"{targetLocation}/{txt_temName.Value}_{file_Template.PostedFile.FileName}"));
-                new TemplateBL().UpdateTemplate(int.Parse(hdnID.Value), txt_temName.Value, int.Parse(ddlCat.Value), int.Parse(txtRequiredDays.Value), int.Parse(txtPrice.Value), string.Format($"/Uploads/Templates/{txt_temName.Value}_{file_Template.PostedFile.FileName}"));
+                new TemplateBL().UpdateTemplate(int.Parse(hdnID.Value), txt_temName.Value, int.Parse(ddlCat.Value), Convert.ToDecimal(txtPrice.Value), string.Format($"/Uploads/Templates/{txt_temName.Value}_{file_Template.PostedFile.FileName}"));
                 this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "ShowMessage", string.Format("<script type='text/javascript'>toastr.success('Successfully Updated') </script>"));
                 LoadTemplates();
             }
@@ -78,7 +81,7 @@ namespace SmartGraphy.OnlineOderingSystem.UI.Customer
                 try
                 {
                     file_Template.PostedFile.SaveAs(string.Format($"{targetLocation}/{txt_temName.Value}_{file_Template.PostedFile.FileName}"));
-                    new TemplateBL().AddTemplate(txt_temName.Value, int.Parse(ddlCat.Value), int.Parse(txtRequiredDays.Value), int.Parse(txtPrice.Value), string.Format($"/Uploads/Templates/{txt_temName.Value}_{file_Template.PostedFile.FileName}"), Session["username"].ToString());
+                    new TemplateBL().AddTemplate(txt_temName.Value, int.Parse(ddlCat.Value), int.Parse(txtPrice.Value), string.Format($"/Uploads/Templates/{txt_temName.Value}_{file_Template.PostedFile.FileName}"), Session["username"].ToString());
                     this.Page.ClientScript.RegisterStartupScript(this.Page.GetType(), "ShowMessage", string.Format("<script type='text/javascript'>toastr.success('New Category Added Successfully') </script>"));
                     LoadTemplates();
                 }

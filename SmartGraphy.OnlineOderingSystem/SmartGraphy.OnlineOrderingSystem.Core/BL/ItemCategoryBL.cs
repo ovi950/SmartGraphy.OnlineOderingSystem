@@ -29,7 +29,7 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 
                                                   {
                                                       CategoryID = t.CategoryID,
-                                                      RequiredDays = t.RequiredDays,
+                                                     // RequiredDays = t.RequiredDays,
                                                       TemplateID = t.ItemNo,
                                                       TemplateImage = t.TemplateImage,
                                                       TemplateName = t.TemplateName,

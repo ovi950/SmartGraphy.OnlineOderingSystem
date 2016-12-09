@@ -9,13 +9,13 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
 {
     public class TemplateBL : AbstractBL<TB_ItemTemplateDetail, long>
     {
-        public void AddTemplate(string TemplateName, int CategoryID, int RequiredDays, int UnitPrice, string TemplateImage, string CreatedBy)
+        public void AddTemplate(string TemplateName, int CategoryID, decimal UnitPrice, string TemplateImage, string CreatedBy)
         {
             EntityManager.TB_ItemTemplateDetails.InsertOnSubmit(new TB_ItemTemplateDetail()
             {
                 TemplateName = TemplateName,
                 CategoryID = CategoryID,
-                RequiredDays = RequiredDays,
+                //RequiredDays = RequiredDays,
                 TemplateImage = TemplateImage,
                 UnitPrice = UnitPrice,
                 CreatedBy = CreatedBy,
@@ -28,19 +28,19 @@ namespace SmartGraphy.OnlineOrderingSystem.Core.BL
             EntityManager.SubmitChanges();
         }
 
-        public void UpdateTemplate(int TemplateID, string TemplateName, int CategoryID, int RequiredDays, int UnitPrice, string TemplateImage)
+        public void UpdateTemplate(int TemplateID, string TemplateName, int CategoryID, decimal UnitPrice, string TemplateImage)
         {
             var template = (from d in EntityManager.TB_ItemTemplateDetails
                             where d.ItemNo == TemplateID
                             select d).SingleOrDefault();
 
             template.CategoryID = CategoryID;
-            template.RequiredDays = RequiredDays;
+            //template.RequiredDays = RequiredDays;
             template.TemplateImage = TemplateImage;
             template.UnitPrice = UnitPrice;
             template.LastUpdatedOn = DateTime.Now;
 
-            SaveChanges();
+            EntityManager.SubmitChanges();
         }
 
         public List<TB_ItemTemplateDetail> GetAllTemplates()

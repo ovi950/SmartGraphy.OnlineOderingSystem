@@ -104,7 +104,7 @@
                             </div>
                         </div>
                         <br />
-                        <div class="row">
+                        <%-- <div class="row">
                             <span class="col-md-1"></span>
                             <div class="col-md-2">
                                 <label class="form-actions">Required Days</label>
@@ -112,7 +112,7 @@
                             <div class="col-md-5">
                                 <input type="number" id="txtRequiredDays" required="required" runat="server" class="form-control" />
                             </div>
-                        </div>
+                        </div>--%>
                         <br />
                         <div class="row">
                             <span class="col-md-1"></span>
@@ -141,39 +141,40 @@
             </div>
         </div>
 
-    </form>
-    <div id="div_compose" class="col-md-12">
-        <div class="portlet light bordered">
-            <div class="portlet-title">
-                <div class="caption">
-                    <span runat="server" class="caption-subject font-blue sbold uppercase">Product Templates</span>
-                </div>
-                <div class="actions">
 
-                    <a data-toggle="modal" href="#modal_cat" id="btn_addnew" class="btn default btn-lg">
-                        <i class="fa fa-plus"></i>New template
+        <div id="div_compose" class="col-md-12">
+            <div class="portlet light bordered">
+                <div class="portlet-title">
+                    <div class="caption">
+                        <span runat="server" class="caption-subject font-blue sbold uppercase">Product Templates</span>
+                    </div>
+                    <div class="actions">
 
-                    </a>
+                        <a data-toggle="modal" href="#modal_cat" id="btn_addnew" class="btn default btn-lg">
+                            <i class="fa fa-plus"></i>New template
+
+                        </a>
+                    </div>
                 </div>
-            </div>
-            <div id="div_composeArea" class="portlet-body">
-                <table class="table table-striped table-hover table-bordered">
-                    <thead>
-                        <tr>
-                            <th>TemlateName Name</th>
-                            <th>Is Enabled ?</th>
-                            <th>Created On</th>
-                            <th>Last Updated On</th>
-                            <th></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody id="tbl_cat" runat="server">
-                    </tbody>
-                </table>
+                <div id="div_composeArea" class="portlet-body">
+                    <table class="table table-striped table-hover table-bordered">
+                        <thead>
+                            <tr>
+                                <th>TemlateName Name</th>
+                                <th>Is Enabled ?</th>
+                                <th>Created On</th>
+                                <th>Last Updated On</th>
+                                <th></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody id="tbl_cat" runat="server">
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
-    </div>
+    </form>
 </asp:Content>
 <asp:Content ID="cont2" ContentPlaceHolderID="headContent" runat="server">
     <script type="text/javascript">
@@ -196,33 +197,33 @@
             $("#<%=btn_update.ClientID%>").show();
             $("#<%=txt_temName.ClientID%>").val($(e).attr("data-name"));
             $("#<%=txtPrice.ClientID%>").val($(e).attr("data-price"));
-            $("#<%=txtRequiredDays.ClientID%>").val($(e).attr("data-days"));    
+           <%-- $("#<%=txtRequiredDays.ClientID%>").val($(e).attr("data-days"));--%>
             $("#<%=hdnID.ClientID%>").val($(e).attr("id"));
             $("#modal_cat").modal("show");
         }
         function setRequirements(e) {
-            var param={"templateID":$(e).attr("id")}
-           
-        
-            
+            var param = { "templateID": $(e).attr("id") }
 
-            
-            var data =JSON.parse( $(e).attr("data-requirements"));
+
+
+
+
+            var data = JSON.parse($(e).attr("data-requirements"));
             <%--$("#<%=ddlRequirements.ClientID%>").select2({data:data});--%>
-               
-            
-             $("#<%=ddlRequirements.ClientID%>").val(data);
+
+
+            $("#<%=ddlRequirements.ClientID%>").val(data);
             $("#<%=hdnID.ClientID%>").val($(e).attr("id"));
             $("#modalRequirements").modal("show");
         }
 
         function setValues() {
             var requirements = $("#<%=ddlRequirements.ClientID%>").val()
-            
-            var templateID=$("#<%=hdnID.ClientID%>").val();
-            var param={
-                "requirement":requirements,
-                "templateID":templateID
+
+            var templateID = $("#<%=hdnID.ClientID%>").val();
+            var param = {
+                "requirement": requirements,
+                "templateID": templateID
             };
 
             $.ajax(
@@ -236,10 +237,10 @@
                        success: function (result) {
                            //var data1 = JSON.parse(result.d);
                            toastr.info("done");
-                           }
-
                        }
-                   
+
+                   }
+
 
                    );
         }

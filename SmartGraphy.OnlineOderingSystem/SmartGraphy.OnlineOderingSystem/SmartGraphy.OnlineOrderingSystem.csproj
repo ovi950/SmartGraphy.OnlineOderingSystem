@@ -5705,11 +5705,15 @@
     <Content Include="UI\Backend\Designer\Default.aspx" />
     <Content Include="UI\Backend\Designer\Inbox.aspx" />
     <Content Include="UI\Backend\Designer\TemplateRequirements.aspx" />
+    <Content Include="UI\Backend\Designer\ViewOrder.aspx" />
+    <Content Include="UI\Backend\Designer\ViewOrders.aspx" />
     <Content Include="UI\Backend\Supervisor\ConfigCategories.aspx" />
     <Content Include="UI\Backend\Supervisor\Default.aspx" />
     <Content Include="UI\Backend\Designer\ConfigTemplates.aspx" />
     <Content Include="UI\Backend\Supervisor\Inbox.aspx" />
     <Content Include="UI\Backend\Supervisor\Login.aspx" />
+    <Content Include="UI\Backend\Supervisor\ViewOrder.aspx" />
+    <Content Include="UI\Backend\Supervisor\ViewOrders.aspx" />
     <Content Include="UI\Customer\Default.aspx" />
     <Content Include="WebServices\BackendWebservice.asmx" />
     <Content Include="UI\Backend\Site1.Master" />
@@ -5818,6 +5822,20 @@
     <Compile Include="UI\Backend\Designer\TemplateRequirements.aspx.designer.cs">
       <DependentUpon>TemplateRequirements.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Backend\Designer\ViewOrder.aspx.cs">
+      <DependentUpon>ViewOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\ViewOrder.aspx.designer.cs">
+      <DependentUpon>ViewOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\ViewOrders.aspx.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Designer\ViewOrders.aspx.designer.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Backend\Login.aspx.cs">
       <DependentUpon>Login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5867,6 +5885,20 @@
     <Compile Include="UI\Backend\Supervisor\Login.aspx.designer.cs">
       <DependentUpon>Login.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Backend\Supervisor\ViewOrder.aspx.cs">
+      <DependentUpon>ViewOrder.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Supervisor\ViewOrder.aspx.designer.cs">
+      <DependentUpon>ViewOrder.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Backend\Supervisor\ViewOrders.aspx.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="UI\Backend\Supervisor\ViewOrders.aspx.designer.cs">
+      <DependentUpon>ViewOrders.aspx</DependentUpon>
+    </Compile>
     <Compile Include="UI\Customer\Default.aspx.cs">
       <DependentUpon>Default.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -5874,6 +5906,7 @@
     <Compile Include="UI\Customer\Default.aspx.designer.cs">
       <DependentUpon>Default.aspx</DependentUpon>
     </Compile>
+    <Compile Include="UI\Customer\WbMethodAttribute.cs" />
     <Compile Include="WebServices\BackendWebservice.asmx.cs">
       <DependentUpon>BackendWebservice.asmx</DependentUpon>
       <SubType>Component</SubType>
@@ -5883,6 +5916,7 @@
     <Folder Include="assets\apps\img\" />
     <Folder Include="assets\global\plugins\angularjs\plugins\angular-file-upload\uploads\" />
     <Folder Include="assets\global\plugins\fullcalendar\demos\php\" />
+    <Folder Include="Documents\Invoices\" />
     <Folder Include="Uploads\Attachments\" />
     <Folder Include="Uploads\ProductCategories\" />
     <Folder Include="Uploads\Templates\" />
